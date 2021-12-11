@@ -134,4 +134,4 @@ LOGIN_URL = 'login'
 
 SESSION_COOKIE_AGE = 60 * 60 * 24 * 30 * 3
 
-djano_heroku.settings(locals())
+django_heroku.settings(locals())
