@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 import os
+import djano_heroku
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -132,3 +133,5 @@ LOGIN_REDIRECT_URL = '/users'
 LOGIN_URL = 'login'
 
 SESSION_COOKIE_AGE = 60 * 60 * 24 * 30 * 3
+
+djano_heroku.settings(locals())
