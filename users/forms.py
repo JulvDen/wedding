@@ -90,9 +90,11 @@ class UpdateFamilyForm(forms.ModelForm):
 
 
 class FamilyMemberForm(forms.ModelForm):
-    class Meta:
-        model = FamilyMember
-        exclude = ()
+    name = forms.CharField(max_length=30, widget=forms.TextInput(attrs={'placeholder': 'name',
+                                                                        'class': 'form-control',}))
+    specialRequest = forms.CharField(max_length=100,
+                                     widget=forms.TextInput(attrs={'placeholder': 'Veggie, allergies,...?',
+                                                                   'class': 'form-control',}))
 
     def __init__(self, *args, **kwargs):
         super(FamilyMemberForm, self).__init__(*args, **kwargs)
@@ -104,6 +106,10 @@ class FamilyMemberForm(forms.ModelForm):
             del self.fields['toDinner']  # removes field from form and template
         if not Family.objects.get(pk=self.instance.family_id).invitedToParty:
             del self.fields['toParty']  # removes field from form and template
+
+    class Meta:
+        model = FamilyMember
+        fields = ['name', 'toCeremony', 'toReception', 'toDinner', 'toParty', 'specialRequest']
 
 
 FamilyMemberFormSet = inlineformset_factory(Family, FamilyMember, form=FamilyMemberForm, extra=0, can_delete=False)

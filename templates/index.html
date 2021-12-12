@@ -10,6 +10,7 @@
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/product/">
 	<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 
     <!-- Bootstrap core CSS -->
@@ -54,9 +55,9 @@
 
 <header class="site-header sticky-top py-1">
   <nav class="container d-flex flex-column flex-md-row justify-content-between">
-    <a class="py-2" href="#" aria-label="Product">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="d-block mx-auto" role="img" viewBox="0 0 24 24"><title>Product</title><circle cx="12" cy="12" r="10"/><path d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94"/></svg>
-    </a>
+    <!--<a class="py-2" href="#" aria-label="Product">
+      <img src="{% static 'pages/img/logo_witte cirkel.svg' %}" alt="Logo" width="24" height="24"</svg>
+    </a>-->
     <a class="py-2 d-none d-md-inline-block" href="#first">Planning</a>
     <a class="py-2 d-none d-md-inline-block" href="#second">Location</a>
     <a class="py-2 d-none d-md-inline-block" href="#">Gifts</a>
@@ -105,7 +106,7 @@
   </div>
   
   <div class="row">
-    <div id="intro" class="col-7" style="font-size: 1.5rem; padding: 50px">
+    <div id="intro" class="col-7" style="font-size: 1.25rem; padding: 50px">
 	  <p>Hey lieve vrienden en familie,</p>
 	  <div style="text-align: justify; text-justify: inter-word;">
 		Zoals jullie weten zijn wij sinds 26 november 2021 verloofd. 
@@ -123,12 +124,12 @@
   <div id="first" style="background-color: #F3F9FD;">
     <!--<div class="row justify-content-center">-->
 	<div class="d-flex align-items-center">
-	  <div class="col-7 " style="text-align: justify; text-justify: inter-word; font-size: 1.5rem; padding:50px;">
+	  <div class="col-7 " style="text-align: justify; text-justify: inter-word; font-size: 1.25rem; padding:50px;">
 	    <div> 
 		  Zal jij erbij zijn op de mooiste dag van ons leven? Vergeet dan zeker je aanwezigheid niet te bevestigen!
 		</div>
 		<div style="padding:50px; text-align-last: center;">
-		  <a href="{% url 'users-family' %}" class="btn btn-lg" style="background-color:#294C66; color:white;"><h3>Ik zal er zijn!</h3></a>
+		  <a href="{% url 'login' %}" class="btn btn-lg" style="background-color:#294C66; color:white;"><h3>Ik zal er zijn!</h3></a>
         </div>
 	  </div>
       <div class="col-5">
@@ -137,28 +138,63 @@
 	</div>
   </div>
 
-  <div id="second" class="row" style="background-color: #F3F9FD;">
+  <div id="second" class="row" style="background-color: #F3F9FD; padding:20px;">
 	<div class="col-6">
 		<div id="map">
 		</div>
 	</div>
-	<div class="col-6" style="text-align: justify; text-justify: inter-word; font-size: 1.5rem; padding:20px;">
+	<div class="col-6" style="text-align: justify; text-justify: inter-word; font-size: 1.25rem; padding:20px;">
 	  <h2 style="margin-bottom:25px;">Locatie</h2>
 	  <p>Onze ceremonie, receptie en feest vinden plaats in het prachtige Kattebroek te Dilbeek.</p>
 	  <p>Vlakbij de Ring rond Brussel, maar toch tussen de velden is dit voor ons de ideale plek om elkaar het ja-woord te geven.</p>  
 	  <p>Naast de zaal is er een ruime parking.</p> 
 	</div>
   </div>
+  
+  <div class="accordion accordion-flush" id="accordionFlushExample">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="flush-headingOne">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+        Wat zijn de coronamaatregelen voor trouwfeesten?
+      </button>
+    </h2>
+    <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+      <div class="accordion-body">
+	    <p>Goed nieuws! Trouwfeesten mogen nog steeds doorgaan, uiteraard wel mits je rekening houdt met de huidige coronamaatregelen. 
+		   Sinds 26 november 2021 zijn de regels als volgt: 
+		</p>
+	  </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="flush-headingTwo">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+        Accordion Item #2
+      </button>
+    </h2>
+    <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+      <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the second item's accordion body. Let's imagine this being filled with some actual content.</div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="flush-headingThree">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+        Accordion Item #3
+      </button>
+    </h2>
+    <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+      <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the third item's accordion body. Nothing more exciting happening here in terms of content, but just filling up the space to make it look, at least at first glance, a bit more representative of how this would look in a real-world application.</div>
+    </div>
+  </div>
+  </div>
 
     <!--{% load static %}-->
 
     <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
     <script src="{% static 'pages/js/functions.js' %}"></script>
-    <script src="{% static 'pages/js/planning.js' %}"></script>
 	<script
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA-W7ZW8ZH96M5r0wOB2HS5dyxjxupoC3E&callback=initMap&libraries=&v=weekly"
       async
     ></script>
-
   </body>
 </html>
