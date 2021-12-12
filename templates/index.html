@@ -93,7 +93,7 @@
         <div class="d-flex justify-content-center">
           <img id="count-down" src="{% static 'pages/img/countdown.png' %}" style="height: 150px;">
         </div>
-		</div>
+	  </div>
     </div>
 	<div class="col-6 d-flex align-items-center">
       <div class="container">
@@ -103,32 +103,51 @@
 	  </div>
     </div>
   </div>
-
-  <div id="first" class="row day">
-    <div class="col-1"></div>
-    <div class="col-10 d-flex justify-content-center">
-      <canvas id="myCanvas" width="900" height="600">
-      Your browser does not support the HTML5 canvas tag.</canvas>
-      <div style="display:none;">
-        <img id="paar"
-          src="{% static 'pages/img/Paar.svg' %}">
-        <img id="glazen"
-           src="{% static 'pages/img/Glazen.svg' %}">
-        <img id="eten"
-           src="{% static 'pages/img/Eten.svg' %}">
-        <img id="party"
-           src="{% static 'pages/img/Party.png' %}">
-      </div>
-    </div>
-    <div class="col-1"></div>
+  
+  <div class="row">
+    <div id="intro" class="col-7" style="font-size: 1.5rem; padding: 50px">
+	  <p>Hey lieve vrienden en familie,</p>
+	  <div style="text-align: justify; text-justify: inter-word;">
+		Zoals jullie weten zijn wij sinds 26 november 2021 verloofd. 
+		We kijken er enorm naar uit om onze liefde en ons huwelijk 
+		samen met jullie te vieren. Op deze website, die Julien 
+		speciaal voor deze gelegenheid gemaakt heeft, vinden jullie 
+		alle info over ons trouwfeest terug. Hier vinden jullie ook 
+		steeds de geldende coronamaatregelen rond huwelijksfeesten. 
+		Wij hopen in ieder geval dat we gaan kunnen feesten als 
+		nooit tevoren!  
+	  </div>
+	</div>
   </div>
 
-  <div id="second" class="row day" style="background-color: #F3F9FD;">
+  <div id="first" style="background-color: #F3F9FD;">
+    <!--<div class="row justify-content-center">-->
+	<div class="d-flex align-items-center">
+	  <div class="col-7 " style="text-align: justify; text-justify: inter-word; font-size: 1.5rem; padding:50px;">
+	    <div> 
+		  Zal jij erbij zijn op de mooiste dag van ons leven? Vergeet dan zeker je aanwezigheid niet te bevestigen!
+		</div>
+		<div style="padding:50px; text-align-last: center;">
+		  <a href="{% url 'users-family' %}" class="btn btn-lg" style="background-color:#294C66; color:white;"><h3>Ik zal er zijn!</h3></a>
+        </div>
+	  </div>
+      <div class="col-5">
+		<img src="{% static 'pages/img/WE_DO.png' %}" alt="Planning" width="100%">
+	  </div>
+	</div>
+  </div>
+
+  <div id="second" class="row" style="background-color: #F3F9FD;">
 	<div class="col-6">
 		<div id="map">
 		</div>
 	</div>
-	<div class="col-6"></div>
+	<div class="col-6" style="text-align: justify; text-justify: inter-word; font-size: 1.5rem; padding:20px;">
+	  <h2 style="margin-bottom:25px;">Locatie</h2>
+	  <p>Onze ceremonie, receptie en feest vinden plaats in het prachtige Kattebroek te Dilbeek.</p>
+	  <p>Vlakbij de Ring rond Brussel, maar toch tussen de velden is dit voor ons de ideale plek om elkaar het ja-woord te geven.</p>  
+	  <p>Naast de zaal is er een ruime parking.</p> 
+	</div>
   </div>
 
     <!--{% load static %}-->
