@@ -92,7 +92,7 @@ class UpdateFamilyForm(forms.ModelForm):
 class FamilyMemberForm(forms.ModelForm):
     name = forms.CharField(max_length=30, widget=forms.TextInput(attrs={'placeholder': 'name',
                                                                         'class': 'form-control',}))
-    specialRequest = forms.CharField(max_length=100,
+    specialRequest = forms.CharField(max_length=100, required=False,
                                      widget=forms.TextInput(attrs={'placeholder': 'Veggie, allergies,...?',
                                                                    'class': 'form-control',}))
 
