@@ -27,7 +27,7 @@ class FamilyMember(models.Model):
     toReception = models.BooleanField(blank=True, default=False, verbose_name="Reception")
     toDinner = models.BooleanField(blank=True, default=False, verbose_name="Dinner")
     toParty = models.BooleanField(blank=True, default=False, verbose_name="Party")
-    specialRequest = models.CharField(max_length=100, blank=True, default='', verbose_name="Special Request")
+    remark = models.CharField(max_length=100, blank=True, default='', verbose_name="Remark")
     family = models.ForeignKey(Family, on_delete=models.CASCADE)
 
     def __str__(self):

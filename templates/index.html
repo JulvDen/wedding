@@ -51,7 +51,7 @@
     {% load static %}
     <link rel="stylesheet" href="{% static 'pages/css/style.css' %}">
   </head>
-  <body>
+<body style="background-color: #F3F9FD; font-size:1rem">
 
 <header class="site-header sticky-top py-1">
   <nav class="container d-flex flex-column flex-md-row justify-content-between">
@@ -59,10 +59,10 @@
       <img src="{% static 'pages/img/logo_witte cirkel.svg' %}" alt="Logo" width="24" height="24"</svg>
     </a>-->
     <a class="py-2 d-none d-md-inline-block" href="#first">Planning</a>
-    <a class="py-2 d-none d-md-inline-block" href="#second">Location</a>
-    <a class="py-2 d-none d-md-inline-block" href="#">Gifts</a>
-    <a class="py-2 d-none d-md-inline-block" href="#">Pictures</a>
-	<a class="py-2 d-none d-md-inline-block" href="{% url 'login' %}">Register</a>
+    <a class="py-2 d-none d-md-inline-block" href="#second">Locatie</a>
+    <a class="py-2 d-none d-md-inline-block" href="#">Huwelijksreislijst</a>
+    <!--<a class="py-2 d-none d-md-inline-block" href="#">Pictures</a>-->
+		<a class="py-2 d-none d-md-inline-block" href="{% url 'login' %}">Registreren</a>
 	
   </nav>
 </header>
@@ -87,7 +87,7 @@
     </div>
   </div>
 
-  <div class="row borders" style="height: 300px; background-color: #F3F9FD;">
+  <div class="row borders" style="height: 300px;">
     <div class="col-2"></div>
 	<div class="col-4 d-flex align-items-center">
       <div class="container">
@@ -106,7 +106,7 @@
   </div>
   
   <div class="row">
-    <div id="intro" class="col-7" style="font-size: 1.25rem; padding: 50px">
+    <div id="intro" class="col-7" style="padding: 50px">
 	  <p>Hey lieve vrienden en familie,</p>
 	  <div style="text-align: justify; text-justify: inter-word;">
 		Zoals jullie weten zijn wij sinds 26 november 2021 verloofd. 
@@ -121,29 +121,26 @@
 	</div>
   </div>
 
-  <div id="first" style="background-color: #F3F9FD;">
-    <!--<div class="row justify-content-center">-->
-	<div class="d-flex align-items-center">
-	  <div class="col-7 " style="text-align: justify; text-justify: inter-word; font-size: 1.25rem; padding:50px;">
-	    <div> 
-		  Zal jij erbij zijn op de mooiste dag van ons leven? Vergeet dan zeker je aanwezigheid niet te bevestigen!
-		</div>
-		<div style="padding:50px; text-align-last: center;">
-		  <a href="{% url 'login' %}" class="btn btn-lg" style="background-color:#294C66; color:white;"><h3>Ik zal er zijn!</h3></a>
-        </div>
+	<div id="first" class="d-flex align-items-center" style="padding:20px;">
+	  <div class="col-8 " style="text-align: justify; text-align-last:center; text-justify: inter-word;">
+			<div> 
+				Zal jij erbij zijn op de mooiste dag van ons leven? Vergeet dan zeker je aanwezigheid niet te bevestigen!
+			</div>
+			<div style="padding:50px;">
+				<a href="{% url 'login' %}" class="btn btn-lg" style="background-color:#294C66; color:white;"><h3>Ik zal er zijn!</h3></a>
+			</div>
 	  </div>
-      <div class="col-5">
-		<img src="{% static 'pages/img/WE_DO.png' %}" alt="Planning" width="100%">
+    <div class="col">
+			<img src="{% static 'pages/img/WE_DO.png' %}" alt="Planning" width="100%">
 	  </div>
 	</div>
-  </div>
 
-  <div id="second" class="row" style="background-color: #F3F9FD; padding:20px;">
+  <div id="second" class="row" style="padding:20px;">
 	<div class="col-6">
 		<div id="map">
 		</div>
 	</div>
-	<div class="col-6" style="text-align: justify; text-justify: inter-word; font-size: 1.25rem; padding:20px;">
+	<div class="col-6" style="text-align: justify; text-justify: inter-word;">
 	  <h2 style="margin-bottom:25px;">Locatie</h2>
 	  <p>Onze ceremonie, receptie en feest vinden plaats in het prachtige Kattebroek te Dilbeek.</p>
 	  <p>Vlakbij de Ring rond Brussel, maar toch tussen de velden is dit voor ons de ideale plek om elkaar het ja-woord te geven.</p>  
@@ -151,22 +148,23 @@
 	</div>
   </div>
   
-  <div class="accordion accordion-flush" id="accordionFlushExample">
+  <h2 style="padding:20px;">FAQ</h2>
+  <div class="accordion accordion-flush border" id="accordionFlushExample">
   <div class="accordion-item">
     <h2 class="accordion-header" id="flush-headingOne">
       <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
         Wat zijn de coronamaatregelen voor trouwfeesten?
       </button>
     </h2>
-    <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+    <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample" style="padding:20px">
       <div class="accordion-body">
 	    <p>Goed nieuws! Trouwfeesten mogen nog steeds doorgaan, uiteraard wel mits je rekening houdt met de huidige coronamaatregelen. 
 		   Sinds 26 november 2021 zijn de regels als volgt:
 		   <ul>
-		     <li>Omdat we meer dan 50 personen binnen ontvangen, moet bij aankomst het Corona Safe Ticket getoond worden.</li>
-			 <li>Tafels van maximum 6 personen. </li>
-			 <li>Dansen mag, maar wel met mondmasker. </li>
-			 <li>Er is gelukkig geen eind uur voor huwelijksfeesten, dus we kunnen tot in de vroege uurtjes doorgaan! </li>
+		     <li>Aangezien we meer dan 50 personen binnen ontvangen, moet bij aankomst het Corona Safe Ticket getoond worden.</li>
+				 <li>Tafels van maximum 6 personen. </li>
+				 <li>Dansen mag, maar wel met mondmasker. </li>
+				 <li>Er is gelukkig geen eind uur voor huwelijksfeesten, dus we kunnen tot in de vroege uurtjes doorgaan! </li>
 		   </ul>
 		</p>
 		<p>Deze vraag zullen we steeds updaten als er nieuwe maatregelen zijn.</p>
@@ -176,23 +174,78 @@
   <div class="accordion-item">
     <h2 class="accordion-header" id="flush-headingTwo">
       <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-        Accordion Item #2
+        Is er een dresscode? 
       </button>
     </h2>
-    <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-      <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the second item's accordion body. Let's imagine this being filled with some actual content.</div>
+    <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample" style="padding:20px">
+		Niet echt, we zien je graag zoals je bent en vinden het dan ook heel belangrijk 
+		dat jij je goed voelt in wat je draagt die dag. Uiteraard gaan we er wel van uit dat 
+		je van dit bijzondere moment gebruik maakt om je wat op te kleden, 
+		maar voor de rest zijn er geen richtlijnen of restricties.
     </div>
   </div>
   <div class="accordion-item">
     <h2 class="accordion-header" id="flush-headingThree">
       <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-        Accordion Item #3
+        Zijn mijn kids welkom? 
       </button>
     </h2>
-    <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
-      <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the third item's accordion body. Nothing more exciting happening here in terms of content, but just filling up the space to make it look, at least at first glance, a bit more representative of how this would look in a real-world application.</div>
+    <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample" style="padding:20px">
+      <p>
+	    Alle kids zijn welkom, we laten jullie als ouders de keuze of jullie ze wel of niet meebrengen. 
+		Weet wel dat er nog niet heel veel kindjes in onze dichte familie- en vriendenkring zijn. 
+		Heel veel speelkameraadjes zullen ze dus niet hebben. Laat zeker weten of ze erbij zullen zijn of niet!
+	  </p>
+	  <a href="{% url 'login' %}" class="btn btn-lg" style="background-color:#294C66; color:white;"><h6>Ik zal er zijn!</h6></a>
     </div>
   </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="flush-headingFour">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
+        Hebben jullie een huwelijkslijst? 
+      </button>
+    </h2>
+    <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample" style="padding:20px">
+		<p>
+		  Ja hoor! Wij hebben gekozen voor een huwelijksreislijst. 
+		  Die lijst bestaat uit allerlei onderdelen van onze huwelijksreis naar La Réunion 
+		  die jullie ons kunnen cadeau geven. Op die manier bouwen jullie mee aan onze huwelijksreis. 
+		  Selecteer op basis voor jouw budget de onderdelen die jij ons wil geven. 
+		  Om je cadeau te finaliseren druk je op de knop ‘Ik geef dit cadeau!’. 
+		  Vul je gegevens in, laat indien gewenst een boodschap voor ons achter en druk op verzenden. 
+		  Nadien ontvang je een e-mail met de instructies om het cadeau te betalen. 
+		</p>
+		<a href="{% url 'home' %}" class="btn btn-lg" style="background-color:#294C66; color:white;"><h6>Huwelijksreislijst</h6></a>
+	</div>
+  </div>
+  </div>
+  
+  <div style="padding:20px">
+		<h2 style="margin-bottom:40px; margin-top:20px;">Contactgegevens</h2>
+		<div class="row justify-content-start" style="margin-bottom:30px;">
+			<div class="col-4">
+				<img src="{% static 'pages/img/contact.jpg' %}" alt="Contact" width="100%">
+			</div>
+			<div class="col-6">
+				<p>Heb je een vraag voor ons of wil je ons iets vertellen? Aarzel niet om ons te bellen of een berichtje te sturen!</p>
+				<p>Lisa: 0496 78 86 25</p>
+				<p>Julien: 0493 52 70 69</p>
+			</div>
+		</div>
+		<div class="row justify-content-end" style="margin-bottom:30px;">
+			<div class="col-6 text-end">
+				<p>
+					Dit is Melissa, een vriendin van ons en ook één van onze getuigen. 
+					Melissa zal er samen met ons en het personeel van de zaal voor proberen zorgen dat 
+					alles de dag zelf volgens plan loopt.
+				</p>
+				<p>Heb je een vraag of verzoek voor Melissa? Aarzel dan zeker niet om haar te contacteren. </p>
+				<p>Melissa: 0471 95 76 83 </p>
+			</div>
+			<div class="col-2">
+				<img src="{% static 'pages/img/Melissa.jpeg' %}" alt="Contact" width="100%">
+			</div>
+		</div>
   </div>
 
     <!--{% load static %}-->

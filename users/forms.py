@@ -92,7 +92,7 @@ class UpdateFamilyForm(forms.ModelForm):
 class FamilyMemberForm(forms.ModelForm):
     name = forms.CharField(max_length=30, widget=forms.TextInput(attrs={'placeholder': 'name',
                                                                         'class': 'form-control',}))
-    specialRequest = forms.CharField(max_length=100, required=False,
+    remark = forms.CharField(max_length=100, required=False,
                                      widget=forms.TextInput(attrs={'placeholder': 'Veggie, allergies,...?',
                                                                    'class': 'form-control',}))
 
@@ -109,7 +109,7 @@ class FamilyMemberForm(forms.ModelForm):
 
     class Meta:
         model = FamilyMember
-        fields = ['name', 'toCeremony', 'toReception', 'toDinner', 'toParty', 'specialRequest']
+        fields = ['name', 'toCeremony', 'toReception', 'toDinner', 'toParty', 'remark']
 
 
 FamilyMemberFormSet = inlineformset_factory(Family, FamilyMember, form=FamilyMemberForm, extra=0, can_delete=False)
