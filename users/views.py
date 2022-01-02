@@ -40,7 +40,7 @@ def dispatch(self, request, *args, **kwargs):
     # else process dispatch as it otherwise normally would
     return super(RegisterView, self).dispatch(request, *args, **kwargs)
 
-
+'''
 class RegisterView(View):
     form_class = RegisterForm
     initial = {'key': 'value'}
@@ -62,6 +62,7 @@ class RegisterView(View):
             return redirect(to='login')
 
         return render(request, self.template_name, {'form': form})
+'''
 
 
 class CustomLoginView(LoginView):

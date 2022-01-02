@@ -91,10 +91,11 @@ class UpdateFamilyForm(forms.ModelForm):
 
 class FamilyMemberForm(forms.ModelForm):
     name = forms.CharField(max_length=30, widget=forms.TextInput(attrs={'placeholder': 'name',
-                                                                        'class': 'form-control',}))
+                                                                        'class': 'form-control', }))
     remark = forms.CharField(max_length=100, required=False,
                                      widget=forms.TextInput(attrs={'placeholder': 'Veggie, allergies,...?',
-                                                                   'class': 'form-control',}))
+                                                                   'class': 'form-control', }))
+    select_all = forms.BooleanField(required=False, label='Select all')
 
     def __init__(self, *args, **kwargs):
         super(FamilyMemberForm, self).__init__(*args, **kwargs)

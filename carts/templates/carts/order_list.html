@@ -1,0 +1,55 @@
+{% extends "products/base.html" %}
+{% block content %}
+    <div class="container my-4">
+        <h2 class="text-center my-4">Your Orders</h2>
+        {% include "products/messages.html" %}
+        <table class="table">
+            {% if orders %}
+                <thead>
+                    <tr>
+                        <th scope="col">Order ID</th>
+                        <th scope="col">Pay date</th>
+                        <th scope="col">Products</th>
+                    </tr>
+                </thead>
+            {% endif %}
+            <tbody>
+                {% for order in orders %}
+                    <tr>
+                        <th scope="row">{{ order.pk }}</th>
+                        <td>
+												{% if order.payment_date %}
+                            {{ order.payment_date }}
+												{% else %}
+														Waiting for payment
+												{% endif %}	
+                        </td>
+                        <td>
+                            {% for item in order.items.all %}
+                                <div class="row align-middle">
+                                    <div class="col-6 mb-3">
+                                        <h6>{{ item.item.name }}</h6>
+                                        <small>Quantity: {{ item.quantity }}</small>
+                                    </div>
+                                    <div class="col-6 text-right">
+                                        <span class="font-weight-bold mr-4">{{ item.get_total|floatformat:2 }} $</span>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </td>
+                    </tr>
+                    <tr class="table-success">
+                        <td colspan="3" class="text-right text-success"><h5>Total: <span class="font-weight-bold">{{ order.get_total_amount|floatformat:2 }} $</span></h5></td>
+                    </tr>
+                    {% empty %}
+                        <div class="alert alert-info" role="alert">
+                            You do not have any orders
+                        </div>
+                {% endfor %}
+                <tr>
+                    <td colspan="3"><a class="btn btn-warning" href="{% url 'products:home-page' %}">Back to Home Page</a> </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

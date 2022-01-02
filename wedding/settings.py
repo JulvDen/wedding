@@ -25,8 +25,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-# DEBUG = (os.environ.get('DEBUG_VALUE') == "True")
+# DEBUG = True
+DEBUG = (os.environ.get('DEBUG_VALUE') == "True")
 
 ALLOWED_HOSTS = ['weddinglj.herokuapp.com']
 
@@ -42,6 +42,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'widget_tweaks',
     'import_export',
+
+    'crispy_forms',
+
+    'products.apps.ProductsConfig',
+    'carts.apps.CartsConfig',
+    'checkout.apps.CheckoutConfig',
 ]
 
 MIDDLEWARE = [
@@ -126,14 +132,25 @@ USE_TZ = True
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
 
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
     os.path.join(BASE_DIR, 'bootstrap'),
 ]
 
-LOGIN_REDIRECT_URL = '/users'
+LOGIN_REDIRECT_URL = '/'
 LOGIN_URL = 'login'
 
 SESSION_COOKIE_AGE = 60 * 60 * 24 * 30 * 3
 
 django_heroku.settings(locals())
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = "smtp-auth.mailprotect.be"
+EMAIL_PORT = 2525
+MAIL_USE_TLS = True
+MAIL_USE_SSL = False
+EMAIL_HOST_USER = 'info@lisa-julien.com'
+EMAIL_HOST_PASSWORD = 'Reunion2022'
