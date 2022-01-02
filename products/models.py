@@ -14,11 +14,13 @@ class Category(models.Model):
 class Product(models.Model):
     IMG_DIMENSION = 540
 
-    name = models.CharField(max_length=50)
-    description = models.TextField()
+    name = models.CharField(max_length=50, default="")
+    name_FR = models.CharField(max_length=50, default="")
+    description = models.TextField(default="")
+    description_FR = models.TextField(default="")
     price = models.FloatField()
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
-    thumbnail = models.ImageField(upload_to='products/')
+    thumbnail = models.ImageField(upload_to='products/', default='products/Heenreis_L9ruoMo.jpg')
     total = models.PositiveIntegerField(default=1)
     available = models.PositiveIntegerField(default=1)
 
