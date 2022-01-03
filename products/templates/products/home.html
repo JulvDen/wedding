@@ -12,7 +12,7 @@
                 <div class="card text-center border-0 mb-4">
                     <div>
                         <a href="{% url 'products:product-detail' pk=product.pk %}">
-                            <img src="{{ product.thumbnail.url }}" class="card-img-top" alt="{{ product.name }}">
+                            <img src="{{ product.img_path }}" class="card-img-top" alt="{{ product.name }}">
                         </a>
                     </div>
                     <div class="card-body">

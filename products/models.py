@@ -20,7 +20,7 @@ class Product(models.Model):
     description_FR = models.TextField(default="")
     price = models.FloatField()
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
-    thumbnail = models.ImageField(default='static/products/Heenreis.jpg', upload_to='static/products/')
+    image_path = models.CharField(max_length=50, default="")
     total = models.PositiveIntegerField(default=1)
     available = models.PositiveIntegerField(default=1)
 
@@ -30,6 +30,7 @@ class Product(models.Model):
     def __str__(self):
         return self.name
 
+    '''
     def save(self):
         super().save()
 
@@ -37,6 +38,7 @@ class Product(models.Model):
             if img.height > self.IMG_DIMENSION or img.width > self.IMG_DIMENSION:
                 img.thumbnail((self.IMG_DIMENSION, self.IMG_DIMENSION))
                 img.save(self.thumbnail.path)
+    '''
 
     def get_product_url(self):
         return reverse("products:product-detail", kwargs={
