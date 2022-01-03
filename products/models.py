@@ -20,7 +20,7 @@ class Product(models.Model):
     description_FR = models.TextField(default="")
     price = models.FloatField()
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
-    thumbnail = models.ImageField(default='static/products/Heenreis.jpg')
+    thumbnail = models.ImageField(default='static/products/Heenreis.jpg', upload_to='static/products/')
     total = models.PositiveIntegerField(default=1)
     available = models.PositiveIntegerField(default=1)
 
