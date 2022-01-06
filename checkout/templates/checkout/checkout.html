@@ -30,12 +30,12 @@
 																		<h6 class="font-weight-bold">{{ item.item.name }}</h6>
 																		<small>Quantity: {{ item.quantity }}</small>
 																</div>
-																<span>{{ item.get_total|floatformat:2 }} $</span>
+																<span>{{ item.get_total|floatformat:2 }} &nbsp EUR</span>
 														</li>
 												{% endfor %}
 														<li class="list-group-item d-flex justify-content-between">
 																<h6>TOTAL:</h6>
-																<span class="font-weight-bold text-success">{{ order.get_total_amount|floatformat:2 }} $</span>
+																<span class="font-weight-bold text-success">{{ order.get_total_amount|floatformat:2 }} EUR</span>
 														</li>
                           </ul>
                       </div>

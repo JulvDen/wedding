@@ -24,10 +24,9 @@ class Order(models.Model):
     items = models.ManyToManyField(OrderItem)
     ordered = models.BooleanField(default=False)
     payed = models.BooleanField(default=False)
-    created_date = models.DateTimeField(auto_now_add=True)
+    created = models.DateTimeField(auto_now_add=True)
     payment_date = models.DateField(null=True)
     user_message = models.ForeignKey(UserMessage, on_delete=models.SET_NULL, null=True, blank=True)
-
 
     def __str__(self):
         return f'{self.user.username}: {self.get_all_items()}'

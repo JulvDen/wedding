@@ -19,7 +19,7 @@ class Product(models.Model):
     description = models.TextField(default="")
     description_FR = models.TextField(default="")
     price = models.FloatField()
-    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    # category = models.ForeignKey(Category, on_delete=models.CASCADE)
     image_path = models.CharField(max_length=50, default="")
     total = models.PositiveIntegerField(default=1)
     available = models.PositiveIntegerField(default=1)
