@@ -1,5 +1,11 @@
-.container {
-  max-width: 960px;
+body {
+	font-family: Darker Grotesque; 
+	font-size: 24px;
+	background-color: #F3F9FD;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: Jannet;
 }
 
 /*
@@ -54,6 +60,10 @@
   background-color: #e5e5e5;
 }
 
+.accordion-button {
+	font-size: 24px;
+	font-family: Darker Grotesque;
+}
 
 /*
  * Extra utilities
@@ -83,3 +93,5 @@
 #map {
   height: 500px;
 }
+
+

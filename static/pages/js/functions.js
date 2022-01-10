@@ -29,6 +29,9 @@ function myCanvas() {
   document.getElementById("myCanvas").style.wordSpacing = "1px";
 }
 
+//let hiddenInput = document.getElementById("Google_API");
+//let Google_API_value = hiddenInput.value
+
 let map;
 
 function initMap() {
@@ -37,9 +40,32 @@ function initMap() {
     center: locatie,
     zoom: 14,
   });
-  new google.maps.Marker({
+	const contentString =
+    '<div id="content">' +
+    '<h5 id="firstHeading" class="firstHeading">Kattebroek</h5>' +
+    '<div id="bodyContent">' +
+    "<p>Elegemstraat 160, 1700 Dilbeek</p>" +
+    "</div>" +
+		'<a href="https://www.google.be/maps/dir///@50.8446589,4.2793976,13z/data=!4m9!4m8!1m0!1m5!1m1!1s0x47c3c12ebb5068ed:0x14353353d517d12f!2m2!1d4.2667432!2d50.8575305!3e0" target="_blank" class="btn-link"' +
+		"<h6>Ga erheen</h6>" +
+		"</a>" +
+    "</div>";
+		
+		
+	const infowindow = new google.maps.InfoWindow({
+    content: contentString,
+  });
+  const marker = new google.maps.Marker({
     position: locatie,
     map,
     title: "Kattebroek",
+  });
+	
+	marker.addListener("click", () => {
+    infowindow.open({
+      anchor: marker,
+      map,
+      shouldFocus: false,
+    });
   });
 }
