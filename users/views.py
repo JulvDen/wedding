@@ -13,23 +13,16 @@ from .forms import UpdateUserForm, UpdateFamilyForm, FamilyMemberFormSet
 @login_required
 def family(request):
     if request.method == 'POST':
-        user_form = UpdateUserForm(request.POST, instance=request.user)
-        family_form = UpdateFamilyForm(request.POST, request.FILES, instance=request.user.family)
         member_formset = FamilyMemberFormSet(request.POST, request.FILES, instance=request.user.family)
 
-        if user_form.is_valid() and family_form.is_valid() and member_formset.is_valid():
-            user_form.save()
-            family_form.save()
+        if member_formset.is_valid():
             member_formset.save()
             messages.success(request, 'Your data is updated successfully')
             return redirect(to='users-family')
     else:
-        user_form = UpdateUserForm(instance=request.user)
-        family_form = UpdateFamilyForm(instance=request.user.family)
         member_formset = FamilyMemberFormSet(instance=request.user.family)
 
-    return render(request, 'users.html', {'user_form': user_form, 'family_form': family_form,
-                                          'member_formset': member_formset})
+    return render(request, 'users.html', {'member_formset': member_formset})
 
 
 def dispatch(self, request, *args, **kwargs):

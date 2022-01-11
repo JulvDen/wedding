@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% block title %}Family{% endblock title %}
 {% block content %}
+{% load users_tags %}
     {% if user_form.errors %}
         <div class="alert alert-danger alert-dismissible" role="alert">
             <div id="form_errors">
@@ -15,52 +16,43 @@
     {% endif %}
 	<br>
     <div class="form-content">
-        <form method="post" enctype="multipart/form-data">
-            {% csrf_token %}
-            <div class="form-row">
-                <div class="col-md-5">
-                    <div class="form-group">
-                        <label class="small mb-1">Username:</label>
-                            {{ user_form.username }}
-                        <label class="small mb-1">Email:</label>
-                            {{ user_form.email }}
-                    </div>
-                    <label class="small mb-1">Address:</label> {{ family_form.address }}
-                    <label class="small mb-1">Language:</label> {{ family_form.language }}
-                </div>
-            </div>
-            <br><br>
-			<div class="col-12">
-				<table class="table table-striped">
-				{{ member_formset.management_form }}
-				{% for form in member_formset.forms %}
-					{% if forloop.first %}
-						<thead>
-						<tr>
-							{% for field in form.visible_fields %}
-								<th>{{ field.label|capfirst }}</th>
-							{% endfor %}
-						</tr>
-						</thead>
-					{% endif %}
-						<tr class="col-md-4">
-						{% for field in form.visible_fields %}
-						<td>
-							{# Include the hidden fields in the form #}
-							{% if forloop.first %}
-								{% for hidden in form.hidden_fields %}
-									{{ hidden }}
+      <form method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+				<div class="col-12" style="padding: 0px;">
+					<table class="table table-striped">
+					{{ member_formset.management_form }}
+					{% for form in member_formset.forms %}
+						{% if forloop.first %}
+							<thead>
+							<tr>
+								{% for field in form.visible_fields %}
+									{% if field|is_checkbox %}
+										<th class="fields_rsvp">{{ field.label|capfirst }}</th>
+									{% else %}
+										<th>{{ field.label|capfirst }}</th>
+									{% endif %}	
 								{% endfor %}
-							{% endif %}
-							{{ field.errors.as_ul }}
-							{{ field }}
-						</td>
-						{% endfor %}
-						</tr>
-				{% endfor %}
-				</table>
-			</div>
-            <button type="submit" class="btn btn-dark btn-lg">Save Changes</button>
+							</tr>
+							</thead>
+						{% endif %}
+							<tr class="col-md-4">
+							{% for field in form.visible_fields %}
+							<td class="fields_rsvp">
+								{# Include the hidden fields in the form #}
+								{% if forloop.first %}
+									{% for hidden in form.hidden_fields %}
+										{{ hidden }}
+									{% endfor %}
+								{% endif %}
+								{{ field.errors.as_ul }}
+								{{ field }}
+							</td>
+							{% endfor %}
+							</tr>
+					{% endfor %}
+					</table>
+				</div>
+            <button type="submit" class="btn btn-lg">Save Changes</button>
         </form>
     </div>    
 

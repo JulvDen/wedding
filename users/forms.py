@@ -69,15 +69,12 @@ class LoginForm(AuthenticationForm):
 
 
 class UpdateUserForm(forms.ModelForm):
-    username = forms.CharField(max_length=100,
-                               required=True,
-                               widget=forms.TextInput(attrs={'class': 'form-control'}))
     email = forms.EmailField(required=True,
                              widget=forms.TextInput(attrs={'class': 'form-control'}))
 
     class Meta:
         model = User
-        fields = ['username', 'email']
+        fields = ['email']
 
 
 class UpdateFamilyForm(forms.ModelForm):
@@ -92,10 +89,12 @@ class UpdateFamilyForm(forms.ModelForm):
 class FamilyMemberForm(forms.ModelForm):
     name = forms.CharField(max_length=30, widget=forms.TextInput(attrs={'placeholder': 'name',
                                                                         'class': 'form-control', }))
-    remark = forms.CharField(max_length=100, required=False,
-                                     widget=forms.TextInput(attrs={'placeholder': 'Veggie, allergies,...?',
-                                                                   'class': 'form-control', }))
+
     select_all = forms.BooleanField(required=False, label='Select all')
+
+    remark = forms.CharField(max_length=100, required=False,
+                             widget=forms.TextInput(attrs={'placeholder': 'Veggie, allergies,...?',
+                                                           'class': 'form-control', }))
 
     def __init__(self, *args, **kwargs):
         super(FamilyMemberForm, self).__init__(*args, **kwargs)
@@ -110,7 +109,7 @@ class FamilyMemberForm(forms.ModelForm):
 
     class Meta:
         model = FamilyMember
-        fields = ['name', 'toCeremony', 'toReception', 'toDinner', 'toParty', 'remark']
+        fields = ['name', 'toCeremony', 'toReception', 'toDinner', 'toParty', 'select_all', 'remark']
 
 
 FamilyMemberFormSet = inlineformset_factory(Family, FamilyMember, form=FamilyMemberForm, extra=0, can_delete=False)

@@ -16,35 +16,6 @@
   {% load static %}
   <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
 
-  <style>
-    .bd-placeholder-img {
-      font-size: 1.125rem;
-      text-anchor: middle;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      user-select: none;
-    }
-
-    .day {
-      word-spacing: 30px;
-    }
-
-    @media (min-width: 768px) {
-      .bd-placeholder-img-lg {
-        font-size: 3.5rem;
-      }
-    }
-
-    .day {
-      font-size: 24px;
-      padding: 10px;
-    }
-    .day img {
-      height: 50px;
-      width: 50px;
-    }
-  </style>
-
 
   <!-- Custom styles for this template -->
   {% load static %}
@@ -142,7 +113,7 @@
 					uitnodiging hebt ontvangen en laat ons weten dat we jou mogen verwachten.
 				</p>
 				<div style="margin-top: 50px;">
-					<a href="{% url 'login' %}" class="btn btn-lg" style="background-color:#294C66; color:white;">
+					<a href="{% url 'login' %}" class="btn btn-lg">
 						<h5>Ik zal er zijn!</h5>
 				  </a>
 				</div>
@@ -217,7 +188,7 @@
 					Weet wel dat er nog niet heel veel kindjes in onze dichte familie- en vriendenkring zijn. 
 					Heel veel speelkameraadjes zullen ze dus niet hebben. Laat zeker weten of ze erbij zullen zijn of niet!
 				</p>
-				<a href="{% url 'login' %}" class="btn btn-lg" style="background-color:#294C66; color:white;"><h6>Ik zal er zijn!</h6></a>
+				<a href="{% url 'login' %}" class="btn btn-lg"><h6>Ik zal er zijn!</h6></a>
 			</div>
 		</div>
 		<div class="accordion-item">
@@ -236,7 +207,7 @@
 				Vul je gegevens in, laat indien gewenst een boodschap voor ons achter en druk op verzenden. 
 				Nadien ontvang je een e-mail met de instructies om het cadeau te betalen. 
 			</p>
-			<a href="{% url 'products:home-page' %}" class="btn btn-lg" style="background-color:#294C66; color:white;"><h6>Huwelijksreislijst</h6></a>
+			<a href="{% url 'products:home-page' %}" class="btn btn-lg"><h6>Huwelijksreislijst</h6></a>
 			</div>
 		</div>
 		<div class="accordion-item">

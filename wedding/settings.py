@@ -33,7 +33,6 @@ ALLOWED_HOSTS = ['weddinglj.herokuapp.com']
 # Application definition
 
 INSTALLED_APPS = [
-    'users.apps.UsersConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -45,6 +44,7 @@ INSTALLED_APPS = [
 
     'crispy_forms',
 
+    'users.apps.UsersConfig',
     'products.apps.ProductsConfig',
     'carts.apps.CartsConfig',
     'checkout.apps.CheckoutConfig',
