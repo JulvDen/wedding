@@ -16,6 +16,24 @@
     {% endif %}
 	<br>
     <div class="form-content">
+			<div style="padding: 12px">
+				<div class="row">
+					<p class="col-2"><b>Ceremonie:</b></p> 
+					<p class="col">16:00 - 17:00 *(aanwezig zijn om 15u30)</p>
+				</div>
+				<div class="row">
+					<p class="col-2"><b>Receptie:</b></p> 
+					<p class="col">17:00 - 18:30</p>
+				</div>
+				<div class="row">
+					<p class="col-2"><b>Diner:</b></p> 
+					<p class="col">18:30 - 22:00</p>
+				</div>
+				<div class="row">
+					<p class="col-2"><b>Dansfeest:</b></p> 
+					<p class="col">22:00</p>
+				</div>
+			</div>
       <form method="post" enctype="multipart/form-data">
           {% csrf_token %}
 				<div class="col-12" style="padding: 0px;">
@@ -37,16 +55,29 @@
 						{% endif %}
 							<tr class="col-md-4">
 							{% for field in form.visible_fields %}
-							<td class="fields_rsvp">
-								{# Include the hidden fields in the form #}
-								{% if forloop.first %}
-									{% for hidden in form.hidden_fields %}
-										{{ hidden }}
-									{% endfor %}
-								{% endif %}
-								{{ field.errors.as_ul }}
-								{{ field }}
-							</td>
+								{% if field|is_checkbox %}
+								<td class="fields_rsvp">
+									{# Include the hidden fields in the form #}
+									{% if forloop.first %}
+										{% for hidden in form.hidden_fields %}
+											{{ hidden }}
+										{% endfor %}
+									{% endif %}
+									{{ field.errors.as_ul }}
+									{{ field }}
+								</td>
+								{% else %}
+								<td>
+									{# Include the hidden fields in the form #}
+									{% if forloop.first %}
+										{% for hidden in form.hidden_fields %}
+											{{ hidden }}
+										{% endfor %}
+									{% endif %}
+									{{ field.errors.as_ul }}
+									{{ field }}
+								</td>
+							{% endif %}
 							{% endfor %}
 							</tr>
 					{% endfor %}
@@ -54,6 +85,21 @@
 				</div>
             <button type="submit" class="btn btn-lg">Save Changes</button>
         </form>
-    </div>    
+    </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+	$(document).ready(function(){
+		$('table').on('change', '.selectAll', function (e) {
+		
+			if ($(this).is(":checked")) {
+				let checkboxes = $(this).closest("tr").find(".fields_rsvp");
+				
+				$.each(checkboxes, function(index, value) {
+					$(this).children().prop( "checked", true );
+				});
+			}
+		});	
+	});
+</script>    
 
 {% endblock content %}

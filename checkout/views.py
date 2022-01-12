@@ -2,7 +2,7 @@ from django.conf import settings
 from django.shortcuts import render, redirect
 from django.views.generic import View
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.core.mail import send_mail
+from django.core.mail import EmailMessage
 
 from products.models import Product
 from carts.models import Order
@@ -65,14 +65,19 @@ def checkout_success(request):
     last_date = datetime.date.today() + BDay(4)
     last_date = last_date.strftime("%d-%m-%Y")
     print(request.user.email)
-    send_mail('Bestelling goed ontvangen',
-              'Hallo,\n\n'
-              'Bedankt voor jouw geschenk! Gelieve ' + str(round(order.get_total_amount(), 2)) +
-              ' EUR over te schrijven naar BE33 7360 4003 9846 met vermelding van jouw naam vóór '
-               + last_date + '.'
-              '\n\nTot Binnenkort!'
-              '\n\nGroetjes Lisa & Julien',
-              'info@lisa-julien.com',
-              [request.user.email],
-              fail_silently=False)
+    email = EmailMessage('Bestelling goed ontvangen',
+                         'Hallo,\n\n'
+                         'Bedankt voor het cadeau! Gelieve ' + str(round(order.get_total_amount(), 3)) +
+                         ' EUR over te schrijven naar BE33 7360 4003 9846 met vermelding van jouw naam vóór '
+                         + last_date + '. Als het bedrag tegen dan nog niet is overgemaakt, zullen de gekozen '
+                                       'producten terug beschikbaar worden voor iedereen.'
+                                       '\n\nTot Binnenkort!'
+                                       '\n\nGroetjes,'
+                                       '\n\nLisa & Julien',
+                         'info@lisa-julien.com',
+                         [request.user.email],
+                         bcc=['julien-denis@hotmail.com', 'lisaa.pe@hotmail.com'])
+
+    email.send(fail_silently=False)
+
     return render(request, 'checkout/success.html', {'datum': last_date})

@@ -90,7 +90,8 @@ class FamilyMemberForm(forms.ModelForm):
     name = forms.CharField(max_length=30, widget=forms.TextInput(attrs={'placeholder': 'name',
                                                                         'class': 'form-control', }))
 
-    select_all = forms.BooleanField(required=False, label='Select all')
+    select_all = forms.BooleanField(required=False, label='Select all', widget=forms.CheckboxInput(
+                                                                        attrs={'class': 'selectAll', }))
 
     remark = forms.CharField(max_length=100, required=False,
                              widget=forms.TextInput(attrs={'placeholder': 'Veggie, allergies,...?',
