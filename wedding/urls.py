@@ -19,15 +19,16 @@ from django.conf import settings
 from django.contrib.auth import views as auth_views
 from django.conf.urls.static import static
 
-from pages.views import home_view
+from pages.views import home_view, home_view_fr
 from users.views import family, CustomLoginView  # ,RegisterView
-from carts.views import OrdersListView
+from carts.views import OrdersListView, OrdersListViewFR
 
 from users.forms import LoginForm
 
 
 urlpatterns = [
     path('', home_view, name='home'),
+    path('fr', home_view_fr, name='home-fr'),
 
     path('users/', family, name='users-family'),
     # path('register/', RegisterView.as_view(), name='users-register'),
@@ -38,7 +39,9 @@ urlpatterns = [
     path('product/', include('products.urls')),
     path('cart/', include('carts.urls')),
     path('checkout/', include('checkout.urls')),
+
     path('orders/', OrdersListView.as_view(), name='show-orders'),
+    path('orders/fr/', OrdersListViewFR.as_view(), name='show-orders-fr'),
 
     path('admin/', admin.site.urls),
 ]

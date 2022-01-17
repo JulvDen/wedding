@@ -8,6 +8,7 @@ class OrderAdmin(admin.ModelAdmin):
     list_display = ['pk',
                     'user',
                     'ordered',
+                    'payment_due_date',
                     'payed',
                     'payment_date',
                     ]

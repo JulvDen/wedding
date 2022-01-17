@@ -1,0 +1,18 @@
+{% extends "products/fr/base.html" %}
+{% block content %}
+    <div class="container my-4">
+        <div>
+            <h6 class="justify-content-start" style="margin-bottom: 60px;">
+							La commande a bien été enregistrée. Dans le mail qui vient d'être envoyé à votre adresse mail vous trouverez les
+							informations concernant le payement. N'oubliez pas de regarder dans vos e-mails indésirables. Les produits sont 
+							réservés jusqu'au {{ datum }} pour vous. Si le payement n'est pas effectué d'ici là, la commande sera automatiquement
+							annulée et vos produits seront à nouveau disponibles pour tout le monde.
+						</h6>
+            <h4 class="text-center">Merci pour le cadeau!</h4>
+            <div class="m-auto w-50  py-4">
+                <a class="btn btn-warning btn-block mb-3" href="{% url 'products:home-page' %}">Retour vers liste mariage</a>
+                <a class="btn btn-success btn-block" href="{% url 'show-orders' %}">Consulter vos commandes</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

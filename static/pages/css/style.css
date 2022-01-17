@@ -1,6 +1,6 @@
 body {
 	font-family: Darker Grotesque; 
-	font-size: 1.5rem;
+	font-size: 24px;
 	background-color: #F3F9FD;
 }
 
@@ -9,52 +9,24 @@ body {
  * Custom translucent site header
  */
 
-.site-header {
+.navbar {
   background-color: #b46a55;
-  -webkit-backdrop-filter: saturate(180%) blur(20px);
-  backdrop-filter: saturate(180%) blur(20px);
+	padding: 4px 20px;
 }
-.site-header a {
+.navbar a {
   color: #fff;
   transition: color .15s ease-in-out;
+	padding: 0.5rem 0rem;
 }
-.site-header a:hover {
+.navbar a:hover {
   color: #fff;
   text-decoration: none;
 }
 
-/*
- * Dummy devices (replace them with your own or something else entirely!)
- */
-
-.product-device {
-  position: absolute;
-  right: 10%;
-  bottom: -30%;
-  width: 300px;
-  height: 540px;
-  background-color: #333;
-  border-radius: 21px;
-  transform: rotate(30deg);
-}
-
-.product-device::before {
-  position: absolute;
-  top: 10%;
-  right: 10px;
-  bottom: 10%;
-  left: 10px;
-  content: "";
-  background-color: rgba(255, 255, 255, .1);
-  border-radius: 5px;
-}
-
-.product-device-2 {
-  top: -25%;
-  right: auto;
-  bottom: 0;
-  left: 5%;
-  background-color: #e5e5e5;
+.dropdown-menu {
+	background-color: #F3F9FD;
+	min-width: 0rem;
+	padding: 0px 8px;
 }
 
 .accordion-button {
@@ -71,32 +43,6 @@ body {
 .fields_rsvp {
 	text-align:center;
 	vertical-align:middle;
-}
-
-/*
- * Extra utilities
- */
-
-.flex-equal > * {
-  flex: 1;
-}
-
-@media (min-width: 992px) {
-  .flex-md-equal > * {
-    flex: 1;
-  }
-}
-
-/* Default height for small devices */
-#intro-example {
-  height: 400px;
-}
-
-/* Height for devices larger than 992px */
-@media (min-width: 992px) {
-  #intro-example {
-	height: 600px;
-  }
 }
 
 #map {

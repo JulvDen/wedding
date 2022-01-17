@@ -1,8 +1,8 @@
-{% extends "products/base.html" %}
+{% extends "products/fr/base.html" %}
 {% load static %}
 {% block content %}
     <section id="product-container" class="container my-5">
-        {% include "products/messages.html" %}
+        {% include "products/fr/messages.html" %}
         <div id="product-details" class="card border-0">
             <div class="row">
                 <div class="col-md-6">
@@ -10,22 +10,22 @@
                 </div>
                 <div class="col-md-6">
                     <div class="card-body">
-                        <h2 class="card-title">{{ object.name }}</h2>
+                        <h2 class="card-title">{{ object.name_FR }}</h2>
 												{% if object.available %}
-												<h4 class="card-subtitle mb-2 badge badge-success">Beschikbaar: {{ object.available }}/{{ object.total }}</h4>
+												<h4 class="card-subtitle mb-2 badge badge-success">Disponibles: {{ object.available }}/{{ object.total }}</h4>
 												{% else %}
-												<h4 class="card-subtitle mb-2 badge badge-danger">Beschikbaar: {{ object.available }}/{{ object.total }}</h4>
+												<h4 class="card-subtitle mb-2 badge badge-danger">Disponibles: {{ object.available }}/{{ object.total }}</h4>
 												{% endif %}
-                        <p class="card-text my-5">{{ object.description }}</p>
+                        <p class="card-text my-5">{{ object.description_FR }}</p>
                         <div class="d-flex align-items-center">
                             <h5 class="card-text font-weight-bold mr-4">{{ object.price|floatformat:2 }} EUR</h5>
 														{% if object.available %}
                             <button id="add_to_cart" class="btn btn-primary">
-                                <i class="fas fa-shopping-cart mr-2"></i>Toevoegen aan winkelmand
+                                <i class="fas fa-shopping-cart mr-2"></i>Ajouter au panier
                             </button>
 														{% else %}
 														<button id="add_to_cart" class="btn btn-primary" disabled>
-                                <i class="fas fa-shopping-cart mr-2"></i>Toevoegen aan winkelmand
+                                <i class="fas fa-shopping-cart mr-2"></i>Ajouter au panier
                             </button>
 														{% endif %}
                         </div>
@@ -46,7 +46,7 @@
         const csrftoken = getCookie('csrftoken');
 
         const xhr = new XMLHttpRequest();
-        xhr.open('POST', "{% url 'carts:add-to-cart' object.pk %}", true);
+        xhr.open('POST', "{% url 'carts:add-to-cart-fr' object.pk %}", true);
         xhr.setRequestHeader('X-CSRFToken', csrftoken);
         xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 

@@ -1,0 +1,55 @@
+{% extends "products/fr/base.html" %}
+{% load static %}
+{% block content %}
+    <div class="container my-4">
+        <h2 class="text-center my-4">Votre Panier</h2>
+        {% include "products/fr/messages.html" %}
+        <table class="table">
+            {% if order.items.all %}
+            <thead>
+                <tr>
+                    <th scope="col">Produit</th>
+                    <th scope="col">Quantité</th>
+                    <th scope="col">Prix</th>
+                    <th scope="col" class="text-center">Montant</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            {% endif %}
+            <tbody>
+                {% for item in order.items.all %}
+                    <tr>
+                        <td>{{ item.item.name_FR }}</td>
+                        <td>
+                            <a href="{% url 'carts:decrease-product-in-cart-fr' item.item.id %}"><span class="badge badge-dark mr-2"><i class="fas fa-minus"></i></span></a>
+                            <span>{{ item.quantity }}</span>
+                            <a href="{% url 'carts:increase-product-in-cart-fr' item.item.id %}"><span class="badge badge-dark ml-2"><i class="fas fa-plus"></i></span></a>
+                        </td>
+                        <td>{{ item.item.price|floatformat:2 }} $</td>
+                        <td class="text-center">{{ item.get_total|floatformat:2 }} EUR</td>
+                        <td class="text-right">
+                            <a class="btn btn-danger" href="{% url 'carts:remove-from-cart-fr' item.item.id %}"><i class="far fa-trash-alt"></i></a>
+                        </td>
+                    </tr>
+                {% empty %}
+                    <div class="alert alert-info" role="alert">
+                        Le panier est vide
+                    </div>
+                {% endfor %}
+                <tr>
+                    <td colspan="3">
+                        <a class="btn btn-warning" href="{% url 'products:home-page-fr' %}">Retour vers liste cadeaux</a>
+                    </td>
+                    {% if order.items.all %}
+                    <td class="text-center">
+                        Total: <span class="font-weight-bold ml-1">{{ order.get_total_amount|floatformat:2 }} EUR</span>
+                    </td>
+                    <td>
+                        <a class="btn btn-info btn-block" href="{% url 'checkout:checkout' "fr" %}">Commander</a>
+                    </td>
+                    {% endif %}
+                </tr>
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

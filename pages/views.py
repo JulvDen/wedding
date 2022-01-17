@@ -6,3 +6,7 @@ from django.shortcuts import render
 def home_view(request, *args, **kwargs):
     return render(request, "index.html", {})
 
+
+def home_view_fr(request, *args, **kwargs):
+    return render(request, "fr/index.html", {})
+

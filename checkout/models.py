@@ -9,12 +9,22 @@ class UserMessage(models.Model):
 
 
 class UserMessageForm(forms.ModelForm):
-    message = forms.CharField(required=False, 
-                widget=forms.Textarea(attrs={'placeholder': 'Message...', 'class': 'form-control'}))
-    
+    message = forms.CharField(required=False, label='Bericht',
+                              widget=forms.Textarea(attrs={'placeholder': 'Bericht...', 'class': 'form-control'}))
+
     class Meta:
         model = UserMessage
         fields = [
             'message'
         ]
 
+
+class UserMessageFormFR(forms.ModelForm):
+    message = forms.CharField(required=False, label='Message',
+                              widget=forms.Textarea(attrs={'placeholder': 'Message...', 'class': 'form-control'}))
+
+    class Meta:
+        model = UserMessage
+        fields = [
+            'message'
+        ]

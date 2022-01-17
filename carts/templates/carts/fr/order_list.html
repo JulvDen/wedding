@@ -1,15 +1,15 @@
-{% extends "products/base.html" %}
+{% extends "products/fr/base.html" %}
 {% block content %}
     <div class="container my-4">
-        <h2 class="text-center my-4">Bestellingen</h2>
-        {% include "products/messages.html" %}
+        <h2 class="text-center my-4">Vos Commandes</h2>
+        {% include "products/fr/messages.html" %}
         <table class="table">
             {% if orders %}
                 <thead>
                     <tr>
-                        <th scope="col">Nummer bestelling</th>
-                        <th scope="col">Datum van betaling</th>
-                        <th scope="col">Producten</th>
+                        <th scope="col">Numéro de commande</th>
+                        <th scope="col">Date de payment</th>
+                        <th scope="col">Produits</th>
                     </tr>
                 </thead>
             {% endif %}
@@ -29,7 +29,7 @@
                                 <div class="row align-middle">
                                     <div class="col-6 mb-3">
                                         <h6>{{ item.item.name }}</h6>
-                                        <small>Hoeveelheid: {{ item.quantity }}</small>
+                                        <small>Quantité: {{ item.quantity }}</small>
                                     </div>
                                     <div class="col-6 text-right">
                                         <span class="font-weight-bold mr-4">{{ item.get_total|floatformat:2 }} EUR</span>
@@ -39,15 +39,15 @@
                         </td>
                     </tr>
                     <tr class="table-success">
-                        <td colspan="3" class="text-right text-success"><h5>Totaal: <span class="font-weight-bold">{{ order.get_total_amount|floatformat:2 }} EUR</span></h5></td>
+                        <td colspan="3" class="text-right text-success"><h5>Total: <span class="font-weight-bold">{{ order.get_total_amount|floatformat:2 }} EUR</span></h5></td>
                     </tr>
                     {% empty %}
                         <div class="alert alert-info" role="alert">
-                            U hebt geen bestellingen
+                            Vous n'avez pas de commandes
                         </div>
                 {% endfor %}
                 <tr>
-                    <td colspan="3"><a class="btn btn-warning" href="{% url 'products:home-page' %}">Terug naar overzicht</a> </td>
+                    <td colspan="3"><a class="btn btn-warning" href="{% url 'products:home-page-fr' %}">Retour vers liste cadeaux</a> </td>
                 </tr>
             </tbody>
         </table>

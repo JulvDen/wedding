@@ -26,18 +26,18 @@
 
   <nav class="navbar navbar-expand-lg navbar-light d-flex flex-column flex-md-row justify-content-between">
 		<div class="d-lg-block dropdown">
-			<a class="nav-link dropdown-toggle" data-toggle="dropdown">Taal</a>
+			<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink78" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Langue</a>
 			<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink78"> 
 				<a class="dropdown-item" href="{% url 'home' %}" style="color: #000;"><span class="flag-icon flag-icon-nl"></span> Nederlands</a> 
 				<a class="dropdown-item" href="{% url 'home-fr' %}" style="color: #000;"><span class="flag-icon flag-icon-fr"></span> Français</a> 
 			</div>
 		</div>
 		<a class="py-2 d-none d-md-inline-block" href="#planning">Planning</a>
-		<a class="py-2 d-none d-md-inline-block" href="#location">Locatie</a>
+		<a class="py-2 d-none d-md-inline-block" href="#location">Lieu</a>
 		<a class="py-2 d-none d-md-inline-block" href="#faq">FAQ</a>
 		<a class="py-2 d-none d-md-inline-block" href="#contact">Contact</a>
-		<a class="py-2 d-none d-md-inline-block" href="{% url 'products:home-page' %}">Huwelijksreislijst</a>
-		<a class="py-2 d-none d-md-inline-block" href="{% url 'users-family' %}">Bevestigen</a> 
+		<a class="py-2 d-none d-md-inline-block" href="{% url 'products:home-page-fr' %}">Liste de mariage</a>
+		<a class="py-2 d-none d-md-inline-block" href="{% url 'users-family' %}">Confirmer</a> 
 		<!--<a class="py-2 d-none d-md-inline-block" href="#">Pictures</a>-->
   </nav>
 
@@ -70,34 +70,35 @@
   
   <div class="row">
     <div id="intro" class="col-12" style="padding: 100px">
-	  <p>Hey lieve vrienden en familie,</p>
+	  <p>Coucou chers amis et chère famille,</p>
 	  <div style="text-align: justify; text-justify: inter-word;">
-			Zoals jullie weten zijn wij sinds 26 november 2021 verloofd. 
-			We kijken er enorm naar uit om onze liefde en ons huwelijk 
-			samen met jullie te vieren. Op deze website, die Julien 
-			speciaal voor deze gelegenheid gemaakt heeft, vinden jullie 
-			alle info over ons trouwfeest terug. Wij hopen in ieder geval 
-			dat we gaan kunnen feesten als nooit tevoren!  
+			Comme vous le savez, nous sommes fiancés depuis le 26 novembre 2021. 
+			Nous sommes impatients de célébrer notre amour et notre mariage avec vous. 
+			Sur ce site web, que Julien a créé spécialement à cette occasion, 
+			vous trouverez toutes les informations concernant notre mariage. 
+			Ici, vous trouverez également toujours les mesures corona en vigueur 
+			autour des fêtes de mariage. En tout cas, nous espérons 
+			que nous pourrons faire la fête comme jamais auparavant!  
 	  </div>
 	</div>
   </div>
 
 	<div id="planning" class="d-flex align-items-center" style="margin: 0px 50px;">
 	  <div class="col-8 " style="text-align: justify; text-justify: inter-word; padding: 60px;">
-			<h2 style="margin-bottom:50px;">DAGPLANNING</h2>
+			<h2 style="margin-bottom:50px;">PROGRAMME DU JOUR</h2>
 			<div>
-				<p> 
-					We verwachten alle ceremoniegasten om 15u30 zodat we om 16u kunnen starten met de  ceremonie. 
-					Nadien heffen we het glas tijdens de receptie, gevolgd door het diner en dansfeest.
+				<p>
+					Nous attendons tous les invités qui seront présents à la cérémonie pour 15h30. Ainsi la cérémonie
+					pourra débuter à 16h. La cérémonie sera suivie par une réception, le diner et pour finir la soiée dansante.
 				</p>
 				<p>
-					Zal jij er bij zijn op de mooiste dag van ons leven? Vergeet dan zeker je aanwezigheid niet te 
-					bevestigen! Klik op onderstaande knop, meld je aan met de logingegevens die je bij je 
-					uitnodiging hebt ontvangen en laat ons weten dat we jou mogen verwachten.
+					Voudriez-vous partager le plus beau jour de notre vie avec nous? N'oubliez pas de confirmer votre présence alors.
+					Appuyez sur le bouton ci-dessous et connectez-vous à l'aide de vos identifiants de connexion que vous avez
+					reçu avec votre invitation. Faites-nous savoir si vous serez de la partie.
 				</p>
 				<div style="margin-top: 50px;">
 					<a href="{% url 'login' %}" class="btn btn-lg">
-						<h5>Ik zal er zijn!</h5>
+						<h5>Je serai là!</h5>
 				  </a>
 				</div>
 			</div>
@@ -113,97 +114,97 @@
 		</div>
 	</div>
 	<div class="col-6" style="text-align: justify; text-justify: inter-word;">
-	  <h2 style="margin-bottom:25px;">LOCATIE</h2>
-	  <p>Onze ceremonie, receptie en ons feest vinden plaats in het prachtige Kattebroek te Dilbeek.</p>
-	  <p>Vlakbij de Ring rond Brussel, maar toch tussen de velden is dit voor ons de ideale plek om elkaar het ja-woord te geven.</p>  
-	  <p>Naast de zaal is er een ruime parking.</p>
-		<p>Adres: Elegemstraat 160, 1700 Dilbeek</p>
+	  <h2 style="margin-bottom:25px;">LIEU</h2>
+	  <p>Notre cérémonie, réception et fête auront lieu dans la magnifique salle de Kattebroek à Dilbeek. </p>
+	  <p>A deux pas du Ring de Bruxelles et quand même entouré de verdure, bref c'est l'endroit idéal pour prononcer notre oui.</p>  
+	  <p>Un grand parking est situé à proximité de la salle</p>
+		<p>Adresse: Elegemstraat 160, 1700 Dilbeek</p>
 	</div>
   </div>
   
-  <h2 id="faq" style="padding: 60px 20px 20px;">FREQUENTLY ASKED QUESTIONS</h2>
+  <h2 id="faq" style="padding: 60px 20px 20px;">FOIRE AUX QUESTIONS</h2>
   <div class="accordion accordion-flush border" id="accordionFlush">
 		<div class="accordion-item">
 			<h2 class="accordion-header" id="flush-headingOne">
 				<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-					Wat zijn de coronamaatregelen voor trouwfeesten?
+					Quelles sont les mesures anti-Covid pour les mariages ? 
 				</button>
 			</h2>
 			<div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlush" style="padding:20px">
 				<div class="accordion-body">
 					<p>
-						Goed nieuws! Trouwfeesten mogen nog steeds doorgaan, uiteraard wel mits je rekening houdt met de huidige coronamaatregelen. 
-						Sinds 26 november 2021 zijn de regels als volgt:
+						Bonne nouvelle ! Les mariages peuvent toujours être célébrés. 
+						Bien sûr, à condition de respecter les mesures anti-Covid en vigeur. 
+						Depuis le 26 novembre 2021, les règles sont les suivantes : 
 						<ul>
-							<li>Aangezien we meer dan 50 personen binnen ontvangen, 
-									moet bij aankomst iedereen ouder dan 12 jaar een geldig Covid Safe Ticket tonen.</li>
-							<li>Tafels van maximum 6 personen. </li>
-							<li>Dansen mag, maar wel met mondmasker. </li>
-							<li>Er is gelukkig geen eind uur voor huwelijksfeesten, dus we kunnen tot in de vroege uurtjes doorgaan! </li>
+							<li>Comme nous recevons plus de 50 personnes, le Covid Safe Ticket doit être présenté à l'arrivée. </li>
+							<li>Tables de 6 personnes maximum.</li>
+							<li>Il est autorisé de danser, à condition de porter un masque. </li>
+							<li>Heureusement il n'y a pas d'heure de fin pour les mariages, nous pouvons donc continuer jusqu'au petit matin ! </li>
 						</ul>
 					</p>
-					<p>Deze vraag zullen we steeds updaten als er nieuwe maatregelen zijn.</p>
+					<p>Nous mettrons cette question à jour lorsqu'il y aura de nouvelles mesures. </p>
 				</div>
 			</div>
 		</div>
 		<div class="accordion-item">
 			<h2 class="accordion-header" id="flush-headingTwo">
 				<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-					Is er een dresscode? 
+					Y a-t-il un code vestimentaire ? 
 				</button>
 			</h2>
 			<div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlush" style="padding:20px">
-				Niet echt, we zien je graag zoals je bent en vinden het dan ook heel belangrijk 
-				dat jij je goed voelt in wat je draagt die dag. Uiteraard gaan we er wel van uit dat 
-				je van dit bijzondere moment gebruik maakt om je wat op te kleden, 
-				maar voor de rest zijn er geen richtlijnen of restricties.
+				Pas vraiment, nous vous aimons tel que vous êtes et nous trouvons donc 
+				qu'il est très important de bien se sentir dans ce que vous portez ce jour-là. 
+				Bien sûr, nous supposons que vous profiterez de cette occasion pour vous faire beau, 
+				mais il n'y a pas de directives ni de restrictions pour le reste
 			</div>
 		</div>
 		<div class="accordion-item">
 			<h2 class="accordion-header" id="flush-headingThree">
 				<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-					Zijn mijn kids welkom? 
+					Mes enfants sont-ils les bienvenus ?
 				</button>
 			</h2>
 			<div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlush" style="padding:20px">
 				<p>
-					Alle kids zijn welkom, we laten jullie als ouders de keuze of jullie ze wel of niet meebrengen. 
-					Weet wel dat er nog niet heel veel kindjes in onze dichte familie- en vriendenkring zijn. 
-					Heel veel speelkameraadjes zullen ze dus niet hebben. Laat zeker weten of ze erbij zullen zijn of niet!
+					Tous les enfants sont les bienvenus, en tant que parents nous vous laissons choisir
+					s’ils vous accompagnent oui ou non. Sachez qu'il n'y a pas encore beaucoup d'enfants 
+					dans notre famille proche et nos amis. Ils n'auront donc pas beaucoup de camarades 
+					pour jouer. N’oubliez pas de nous avertir de leur présence !
 				</p>
-				<a href="{% url 'login' %}" class="btn btn-lg"><h6>Ik zal er zijn!</h6></a>
+				<a href="{% url 'login' %}" class="btn btn-lg"><h6>Je serai là!</h6></a>
 			</div>
 		</div>
 		<div class="accordion-item">
 			<h2 class="accordion-header" id="flush-headingFour">
 				<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
-					Hebben jullie een huwelijkslijst? 
+					Avez-vous une liste de mariage?  
 				</button>
 			</h2>
 			<div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlush" style="padding:20px">
 			<p>
-				Ja hoor! Wij hebben gekozen voor een huwelijksreislijst. 
-				Die lijst bestaat uit allerlei onderdelen van onze huwelijksreis naar La Réunion 
-				die jullie ons kunnen cadeau geven. Op die manier bouwen jullie mee aan onze huwelijksreis. 
-				Selecteer op basis voor jouw budget de onderdelen die jij ons wil geven. 
-				Om je cadeau te finaliseren druk je op de knop ‘Ik geef dit cadeau!’. 
-				Vul je gegevens in, laat indien gewenst een boodschap voor ons achter en druk op verzenden. 
-				Nadien ontvang je een e-mail met de instructies om het cadeau te betalen. 
+				Oui bien sûr! Nous avons opté pour une liste de lune de miel. Cette liste comprend toutes sortes 
+				d'éléments de notre lune de miel à La Réunion que vous pouvez nous offrir. De cette façon, 
+				vous aidez à construire notre lune de miel. Sélectionnez les pièces que vous souhaitez nous offrir 
+				en fonction de votre budget. Pour finaliser votre cadeau, appuyez sur le bouton ‘Offrir ce cadeau !’. 
+				Remplissez vos coordonnées, laissez-nous un message si vous le souhaitez et appuyez sur envoyer. 
+				Ensuite, vous recevrez un e-mail avec les instructions pour payer le cadeau.
 			</p>
-			<a href="{% url 'products:home-page' %}" class="btn btn-lg"><h6>Huwelijksreislijst</h6></a>
+			<a href="{% url 'products:home-page-fr' %}" class="btn btn-lg"><h6>Liste de mariage</h6></a>
 			</div>
 		</div>
 		<div class="accordion-item">
 			<h2 class="accordion-header" id="flush-headingFive">
 				<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFive" aria-expanded="false" aria-controls="flush-collapseFive">
-					Gaan jullie de foto’s van jullie trouw met ons delen? 
+					Allez-vous partager les photos du mariage? 
 				</button>
 			</h2>
 			<div id="flush-collapseFive" class="accordion-collapse collapse" aria-labelledby="flush-headingFive" data-bs-parent="#accordionFlush" style="padding:20px">
 			<p>
-				Uiteraard! 😊 Zodra we de foto’s van de fotograaf ontvangen (ten laatste 1 maand na de trouw), 
-				maken wij een eerste selectie. Nadien voegen we in de menubalk van deze website een item “foto’s” toe, 
-				dat jullie naar het overzicht van alle foto’s brengt. 
+				Evidemment! Dès que nous recevons les photos de notre photographe (au plus tard 1 mois après le maraige),
+				nous procéderons à une première selection. Ensuite nous ajouterons une section "Photos" dans le menu. Ce 
+				lien vous mènera vers un aperçu de toutes nos photos selectionnées.
 			</p>
 			<!--<a href="{% url 'home' %}" class="btn btn-lg" style="background-color:#294C66; color:white;"><h6>Foto's</h6></a>-->
 			</div>
@@ -211,13 +212,16 @@
   </div>
   
   <div id="contact" style="padding:60px 20px 20px;">
-		<h2 style="margin-bottom:40px;">CONTACTGEGEVENS</h2>
+		<h2 style="margin-bottom:40px;">COORDONNÉES</h2>
 		<div class="row justify-content-start" style="margin-bottom:30px;">
 			<div class="col-4">
 				<img src="{% static 'pages/img/contact.jpg' %}" alt="Contact" width="100%">
 			</div>
 			<div class="col-6">
-				<p>Heb je een vraag voor ons of wil je ons iets vertellen? Aarzel niet om ons te bellen of een berichtje te sturen!</p>
+				<p>
+					Vous avez une question à nous poser ou vous souhaitez nous dire quelque chose? 
+					N'hésitez pas à nous appeler ou à nous envoyer un message !
+				</p>
 				<p>Lisa: 0496 78 86 25</p>
 				<p>Julien: 0493 52 70 69</p>
 			</div>
@@ -225,11 +229,11 @@
 		<div class="row justify-content-end" style="margin-bottom:30px;">
 			<div class="col-6 text-end">
 				<p>
-					Dit is Melissa, een vriendin van ons en ook één van onze getuigen. 
-					Melissa zal er samen met ons en het personeel van de zaal voor proberen zorgen dat 
-					alles de dag zelf volgens plan verloopt.
+					Voici Melissa, une de nos amies et aussi l'un de nos témoins. 
+					Melissa travaillera avec nous et le personnel de salle pour 
+					s'assurer que tout se passe comme prévu le jour même.  
 				</p>
-				<p>Heb je een vraag of verzoek voor Melissa? Aarzel dan zeker niet om haar te contacteren. </p>
+				<p>Vous avez une question ou une requête pour Mélissa ? N'hésitez pas à la contacter. </p>
 				<p>Melissa: 0471 95 76 83 </p>
 			</div>
 			<div class="col-2">

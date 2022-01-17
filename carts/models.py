@@ -25,6 +25,7 @@ class Order(models.Model):
     ordered = models.BooleanField(default=False)
     payed = models.BooleanField(default=False)
     created = models.DateTimeField(auto_now_add=True)
+    payment_due_date = models.DateField(null=True)
     payment_date = models.DateField(null=True)
     user_message = models.ForeignKey(UserMessage, on_delete=models.SET_NULL, null=True, blank=True)
 
