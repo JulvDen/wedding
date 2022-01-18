@@ -1,5 +1,5 @@
-{% extends "base.html" %}
-{% block title %}Family{% endblock title %}
+{% extends "fr/base.html" %}
+{% block title %}Confirmer{% endblock title %}
 {% block content %}
 {% load users_tags %}
     {% if user_form.errors %}
@@ -18,19 +18,19 @@
     <div class="form-content">
 			<div style="padding: 12px">
 				<div class="row">
-					<p class="col-2"><b>Ceremonie:</b></p> 
-					<p class="col">16:00 - 17:00 *(aanwezig zijn om 15u30)</p>
+					<p class="col-2"><b>Céremonie:</b></p> 
+					<p class="col">16:00 - 17:00 (être présent à 15h30)</p>
 				</div>
 				<div class="row">
-					<p class="col-2"><b>Receptie:</b></p> 
+					<p class="col-2"><b>Reception:</b></p> 
 					<p class="col">17:00 - 18:30</p>
 				</div>
 				<div class="row">
-					<p class="col-2"><b>Diner:</b></p> 
+					<p class="col-2"><b>Dîner:</b></p> 
 					<p class="col">18:30 - 22:00</p>
 				</div>
 				<div class="row">
-					<p class="col-2"><b>Dansfeest:</b></p> 
+					<p class="col-2"><b>Soirée dansante:</b></p> 
 					<p class="col">22:00</p>
 				</div>
 			</div>
@@ -83,7 +83,7 @@
 					{% endfor %}
 					</table>
 				</div>
-            <button type="submit" class="btn btn-lg">Save Changes</button>
+            <button type="submit" class="btn btn-lg">Enregistrer les modifications</button>
         </form>
     </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

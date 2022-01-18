@@ -20,21 +20,24 @@ from django.contrib.auth import views as auth_views
 from django.conf.urls.static import static
 
 from pages.views import home_view, home_view_fr
-from users.views import family, CustomLoginView  # ,RegisterView
+from users.views import family, family_fr, CustomLoginView, CustomLoginViewFR
 from carts.views import OrdersListView, OrdersListViewFR
 
-from users.forms import LoginForm
-
+from users.forms import LoginForm, LoginFormFR
 
 urlpatterns = [
     path('', home_view, name='home'),
     path('fr', home_view_fr, name='home-fr'),
 
     path('users/', family, name='users-family'),
-    # path('register/', RegisterView.as_view(), name='users-register'),
+    path('users/fr', family_fr, name='users-family-fr'),
+
     path('login/', CustomLoginView.as_view(redirect_authenticated_user=True, template_name='login.html',
                                            authentication_form=LoginForm), name='login'),
+    path('login/fr', CustomLoginViewFR.as_view(redirect_authenticated_user=True, template_name='fr/login.html',
+                                               authentication_form=LoginFormFR), name='login-fr'),
     path('logout/', auth_views.LogoutView.as_view(template_name='index.html'), name='logout'),
+    path('logout/fr', auth_views.LogoutView.as_view(template_name='fr/index.html'), name='logout-fr'),
 
     path('product/', include('products.urls')),
     path('cart/', include('carts.urls')),

@@ -6,8 +6,8 @@ from django.contrib.auth.decorators import login_required
 
 from .models import Family, FamilyMember
 
-from .forms import RegisterForm, LoginForm
-from .forms import UpdateUserForm, UpdateFamilyForm, FamilyMemberFormSet
+from .forms import LoginForm, LoginFormFR
+from .forms import UpdateUserForm, FamilyMemberFormSet, FamilyMemberFormSetFR
 
 
 @login_required
@@ -17,7 +17,7 @@ def family(request):
 
         if member_formset.is_valid():
             member_formset.save()
-            messages.success(request, 'Your data is updated successfully')
+            messages.success(request, 'Uw gegevens zijn goed geüpdatet')
             return redirect(to='users-family')
     else:
         member_formset = FamilyMemberFormSet(instance=request.user.family)
@@ -25,37 +25,19 @@ def family(request):
     return render(request, 'users.html', {'member_formset': member_formset})
 
 
-def dispatch(self, request, *args, **kwargs):
-    # will redirect to the home page if a user tries to access the register page while logged in
-    if request.user.is_authenticated:
-        return redirect(to='users/')
+@login_required(login_url='/login/fr')
+def family_fr(request):
+    if request.method == 'POST':
+        member_formset = FamilyMemberFormSetFR(request.POST, request.FILES, instance=request.user.family)
 
-    # else process dispatch as it otherwise normally would
-    return super(RegisterView, self).dispatch(request, *args, **kwargs)
+        if member_formset.is_valid():
+            member_formset.save()
+            messages.success(request, 'Vos données ont bien été mises à jour')
+            return redirect(to='users-family-fr')
+    else:
+        member_formset = FamilyMemberFormSetFR(instance=request.user.family)
 
-'''
-class RegisterView(View):
-    form_class = RegisterForm
-    initial = {'key': 'value'}
-    template_name = '../templates/register.html'
-
-    def get(self, request, *args, **kwargs):
-        form = self.form_class(initial=self.initial)
-        return render(request, self.template_name, {'form': form})
-
-    def post(self, request, *args, **kwargs):
-        form = self.form_class(request.POST)
-
-        if form.is_valid():
-            form.save()
-
-            username = form.cleaned_data.get('username')
-            messages.success(request, f'Account created for {username}')
-
-            return redirect(to='login')
-
-        return render(request, self.template_name, {'form': form})
-'''
+    return render(request, 'fr/users.html', {'member_formset': member_formset})
 
 
 class CustomLoginView(LoginView):
@@ -73,5 +55,22 @@ class CustomLoginView(LoginView):
 
         # else browser session will be as long as the session cookie time "SESSION_COOKIE_AGE" defined in settings.py
         return super(CustomLoginView, self).form_valid(form)
+
+
+class CustomLoginViewFR(LoginView):
+    form_class = LoginFormFR
+
+    def form_valid(self, form):
+        remember_me = form.cleaned_data.get('remember_me')
+
+        if not remember_me:
+            # set session expiry to 0 seconds. So it will automatically close the session after the browser is closed.
+            self.request.session.set_expiry(0)
+
+            # Set session as modified to force data updates/cookie to be saved.
+            self.request.session.modified = True
+
+        # else browser session will be as long as the session cookie time "SESSION_COOKIE_AGE" defined in settings.py
+        return super(CustomLoginViewFR, self).form_valid(form)
 
 

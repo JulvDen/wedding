@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %}Family{% endblock title %}
+{% block title %}Bevestigen{% endblock title %}
 {% block content %}
 {% load users_tags %}
     {% if user_form.errors %}
@@ -19,7 +19,7 @@
 			<div style="padding: 12px">
 				<div class="row">
 					<p class="col-2"><b>Ceremonie:</b></p> 
-					<p class="col">16:00 - 17:00 *(aanwezig zijn om 15u30)</p>
+					<p class="col">16:00 - 17:00 (aanwezig zijn om 15u30)</p>
 				</div>
 				<div class="row">
 					<p class="col-2"><b>Receptie:</b></p> 
@@ -83,7 +83,7 @@
 					{% endfor %}
 					</table>
 				</div>
-            <button type="submit" class="btn btn-lg">Save Changes</button>
+            <button type="submit" class="btn btn-lg">Aanpassingen opslaan</button>
         </form>
     </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

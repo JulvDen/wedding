@@ -6,56 +6,40 @@ from django.forms import inlineformset_factory
 from .models import Family, FamilyMember
 
 
-class RegisterForm(UserCreationForm):
-    # fields we want to include and customize in our form
-    first_name = forms.CharField(max_length=100,
-                                 required=True,
-                                 widget=forms.TextInput(attrs={'placeholder': 'First Name',
-                                                               'class': 'form-control',
-                                                               }))
-    last_name = forms.CharField(max_length=100,
-                                required=True,
-                                widget=forms.TextInput(attrs={'placeholder': 'Last Name',
-                                                              'class': 'form-control',
-                                                              }))
-    username = forms.CharField(max_length=100,
-                               required=True,
-                               widget=forms.TextInput(attrs={'placeholder': 'Username',
-                                                             'class': 'form-control',
-                                                             }))
-    email = forms.EmailField(required=True,
-                             widget=forms.TextInput(attrs={'placeholder': 'Email',
-                                                           'class': 'form-control',
-                                                           }))
-    password1 = forms.CharField(max_length=50,
-                                required=True,
-                                widget=forms.PasswordInput(attrs={'placeholder': 'Password',
-                                                                  'class': 'form-control',
-                                                                  'data-toggle': 'password',
-                                                                  'id': 'password',
-                                                                  }))
-    password2 = forms.CharField(max_length=50,
-                                required=True,
-                                widget=forms.PasswordInput(attrs={'placeholder': 'Confirm Password',
-                                                                  'class': 'form-control',
-                                                                  'data-toggle': 'password',
-                                                                  'id': 'password',
-                                                                  }))
-
-    class Meta:
-        model = User
-        fields = ['first_name', 'last_name', 'username', 'email', 'password1', 'password2']
-
-
 class LoginForm(AuthenticationForm):
     username = forms.CharField(max_length=100,
                                required=True,
-                               widget=forms.TextInput(attrs={'placeholder': 'Username',
+                               label='Gebruikersnaam',
+                               widget=forms.TextInput(attrs={'placeholder': 'Gebruikersnaam',
                                                              'class': 'form-control',
                                                              }))
     password = forms.CharField(max_length=50,
                                required=True,
-                               widget=forms.PasswordInput(attrs={'placeholder': 'Password',
+                               label='Wachtwoord',
+                               widget=forms.PasswordInput(attrs={'placeholder': 'Wachtwoord',
+                                                                 'class': 'form-control',
+                                                                 'data-toggle': 'password',
+                                                                 'id': 'password',
+                                                                 'name': 'password',
+                                                                 }))
+    remember_me = forms.BooleanField(required=False)
+
+    class Meta:
+        model = User
+        fields = ['username', 'password', 'remember_me']
+
+
+class LoginFormFR(AuthenticationForm):
+    username = forms.CharField(max_length=100,
+                               required=True,
+                               label="Nom d'utilisateur",
+                               widget=forms.TextInput(attrs={'placeholder': "Nom d'utilisateur",
+                                                             'class': 'form-control',
+                                                             }))
+    password = forms.CharField(max_length=50,
+                               required=True,
+                               label='Mot de passe',
+                               widget=forms.PasswordInput(attrs={'placeholder': 'Mot de passe',
                                                                  'class': 'form-control',
                                                                  'data-toggle': 'password',
                                                                  'id': 'password',
@@ -77,24 +61,23 @@ class UpdateUserForm(forms.ModelForm):
         fields = ['email']
 
 
-class UpdateFamilyForm(forms.ModelForm):
-    address = forms.CharField(widget=forms.Textarea(attrs={'class': 'form-control', 'rows': 2}))
-    language = forms.ChoiceField(choices=Family.CHOICES, widget=forms.Select(attrs={'class': 'form-control'}))
-
-    class Meta:
-        model = Family
-        fields = ['address', 'language']
-
-
 class FamilyMemberForm(forms.ModelForm):
-    name = forms.CharField(max_length=30, widget=forms.TextInput(attrs={'placeholder': 'name',
-                                                                        'class': 'form-control', }))
+    name = forms.CharField(max_length=30, label='Naam', widget=forms.TextInput(attrs={'placeholder': 'name',
+                                                                                      'class': 'form-control', }))
 
-    select_all = forms.BooleanField(required=False, label='Select all', widget=forms.CheckboxInput(
-                                                                        attrs={'class': 'selectAll', }))
+    toCeremony = forms.BooleanField(label='Ceremonie')
 
-    remark = forms.CharField(max_length=100, required=False,
-                             widget=forms.TextInput(attrs={'placeholder': 'Veggie, allergies,...?',
+    toReception = forms.BooleanField(label='Receptie')
+
+    toDinner = forms.BooleanField(label='Diner')
+
+    toParty = forms.BooleanField(label='Dansfeest')
+
+    select_all = forms.BooleanField(required=False, label='Alles selecteren', widget=forms.CheckboxInput(
+        attrs={'class': 'selectAll', }))
+
+    remark = forms.CharField(max_length=100, required=False, label='Opmerkingen',
+                             widget=forms.TextInput(attrs={'placeholder': 'Veggie, allergieën,...?',
                                                            'class': 'form-control', }))
 
     def __init__(self, *args, **kwargs):
@@ -113,4 +96,41 @@ class FamilyMemberForm(forms.ModelForm):
         fields = ['name', 'toCeremony', 'toReception', 'toDinner', 'toParty', 'select_all', 'remark']
 
 
+class FamilyMemberFormFR(forms.ModelForm):
+    name = forms.CharField(max_length=30, label='Nom', widget=forms.TextInput(attrs={'placeholder': 'name',
+                                                                                      'class': 'form-control', }))
+
+    toCeremony = forms.BooleanField(label='Céremonie')
+
+    toReception = forms.BooleanField(label='Reception')
+
+    toDinner = forms.BooleanField(label='Dîner')
+
+    toParty = forms.BooleanField(label='Soirée Dansante')
+
+    select_all = forms.BooleanField(required=False, label='Sélectionner Tout', widget=forms.CheckboxInput(
+        attrs={'class': 'selectAll', }))
+
+    remark = forms.CharField(max_length=100, required=False, label='Remarques',
+                             widget=forms.TextInput(attrs={'placeholder': 'Végétarien, allergies,...?',
+                                                           'class': 'form-control', }))
+
+    def __init__(self, *args, **kwargs):
+        super(FamilyMemberFormFR, self).__init__(*args, **kwargs)
+        if not Family.objects.get(pk=self.instance.family_id).invitedToCeremony:
+            del self.fields['toCeremony']  # removes field from form and template
+        if not Family.objects.get(pk=self.instance.family_id).invitedToReception:
+            del self.fields['toReception']  # removes field from form and template
+        if not Family.objects.get(pk=self.instance.family_id).invitedToDinner:
+            del self.fields['toDinner']  # removes field from form and template
+        if not Family.objects.get(pk=self.instance.family_id).invitedToParty:
+            del self.fields['toParty']  # removes field from form and template
+
+    class Meta:
+        model = FamilyMember
+        fields = ['name', 'toCeremony', 'toReception', 'toDinner', 'toParty', 'select_all', 'remark']
+
+
 FamilyMemberFormSet = inlineformset_factory(Family, FamilyMember, form=FamilyMemberForm, extra=0, can_delete=False)
+
+FamilyMemberFormSetFR = inlineformset_factory(Family, FamilyMember, form=FamilyMemberFormFR, extra=0, can_delete=False)

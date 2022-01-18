@@ -8,8 +8,6 @@ class Family(models.Model):
         ('FR', 'Français'),
     )
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    address = models.TextField(blank=True, default='')
-    language = models.CharField(max_length=50, choices=CHOICES, default='NL')
 
     invitedToCeremony = models.BooleanField(default=False)
     invitedToReception = models.BooleanField(default=False)
@@ -23,11 +21,11 @@ class Family(models.Model):
 class FamilyMember(models.Model):
     name = models.CharField(max_length=30, blank=True, default='')
 
-    toCeremony = models.BooleanField(blank=True, default=False, verbose_name="Ceremony")
-    toReception = models.BooleanField(blank=True, default=False, verbose_name="Reception")
-    toDinner = models.BooleanField(blank=True, default=False, verbose_name="Dinner")
-    toParty = models.BooleanField(blank=True, default=False, verbose_name="Party")
-    remark = models.CharField(max_length=100, blank=True, default='', verbose_name="Remark")
+    toCeremony = models.BooleanField(blank=True, default=False)
+    toReception = models.BooleanField(blank=True, default=False)
+    toDinner = models.BooleanField(blank=True, default=False)
+    toParty = models.BooleanField(blank=True, default=False)
+    remark = models.CharField(max_length=100, blank=True, default='')
     family = models.ForeignKey(Family, on_delete=models.CASCADE)
 
     def __str__(self):

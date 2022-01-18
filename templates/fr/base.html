@@ -24,13 +24,13 @@
     <div class="row">
       <div class="col-md-12">
         <nav class="navbar navbar-expand-md navbar-dark" style="background-color: #b46a55; color:white">
-          <a href="/" class="navbar-brand">Home</a>
+          <a href="{% url 'home-fr' %}" class="navbar-brand">Acceuil</a>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav ml-auto">
                   {% if user.is_authenticated %}
-                    <a href="{% url 'logout' %}" class="nav-item nav-link">Logout</a>
+                    <a href="{% url 'logout' %}" class="nav-item nav-link">Se déconnecter</a>
                   {% else %}
-                    <a href="{% url 'login' %}" class="nav-item nav-link">Sign in</a>
+                    <a href="{% url 'login' %}" class="nav-item nav-link">Se connecter</a>
                   {% endif %}
                 </div>
             </div>

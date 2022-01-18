@@ -7,6 +7,9 @@ class UserMessage(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     message = models.TextField()
 
+    def __str__(self):
+        return self.user.username
+
 
 class UserMessageForm(forms.ModelForm):
     message = forms.CharField(required=False, label='Bericht',
