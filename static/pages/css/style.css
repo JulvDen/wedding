@@ -49,4 +49,16 @@ body {
   height: 500px;
 }
 
+#intro {
+	padding: 5vw;
+}
+
+#planning {
+	padding: 0vw 5vw;
+}
+
+#text {
+	text-align: justify; 
+	text-justify: inter-word;
+}
 

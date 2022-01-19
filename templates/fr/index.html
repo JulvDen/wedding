@@ -3,30 +3,28 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="">
+  
   <title>Lisa & Julien</title>
 
-  <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/product/">
 	<link href='https://fonts.googleapis.com/css?family=Darker Grotesque' rel='stylesheet'>
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css" rel="stylesheet" type="text/css">
-	<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>																																											 
 
   <!-- Bootstrap core CSS -->
   {% load static %}
   <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+	<script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>																																
 
 
   <!-- Custom styles for this template -->
-  {% load static %}
+
   <link rel="stylesheet" href="{% static 'pages/css/style.css' %}">
 </head>
 <body>
 
   <nav class="navbar navbar-expand-lg navbar-light d-flex flex-column flex-md-row justify-content-between">
 		<div class="d-lg-block dropdown">
-			<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink78" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Langue</a>
+			<a class="nav-link dropdown-toggle" data-toggle="dropdown">Langue</a>
 			<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink78"> 
 				<a class="dropdown-item" href="{% url 'home' %}" style="color: #000;"><span class="flag-icon flag-icon-nl"></span> Nederlands</a> 
 				<a class="dropdown-item" href="{% url 'home-fr' %}" style="color: #000;"><span class="flag-icon flag-icon-fr"></span> Français</a> 
@@ -61,7 +59,7 @@
 			<div class="d-flex align-items-center">
 				<div class="container">
 					<h1 class="d-flex justify-content-center">
-						<div id="countdown" style="font-size: 60px;"></div>
+						<div id="countdown" style="font-size: 5vw;"></div>
 					</h1>
 				</div>
 			</div>
@@ -69,22 +67,22 @@
 	</div>
   
   <div class="row">
-    <div id="intro" class="col-12" style="padding: 100px">
-	  <p>Coucou chers amis et chère famille,</p>
-	  <div style="text-align: justify; text-justify: inter-word;">
-			Comme vous le savez, nous sommes fiancés depuis le 26 novembre 2020. 
-			Nous sommes impatients de célébrer notre amour et notre mariage avec vous. 
-			Sur ce site web, que Julien a créé spécialement à cette occasion, 
-			vous trouverez toutes les informations concernant notre mariage. 
-			Ici, vous trouverez également toujours les mesures corona en vigueur 
-			autour des fêtes de mariage. En tout cas, nous espérons 
-			que nous pourrons faire la fête comme jamais auparavant!  
-	  </div>
-	</div>
+    <div id="intro" class="col-12">
+			<div id="text">
+				<p>Coucou chers amis et chère famille,</p>
+				Comme vous le savez, nous sommes fiancés depuis le 26 novembre 2020. 
+				Nous sommes impatients de célébrer notre amour et notre mariage avec vous. 
+				Sur ce site web, que Julien a créé spécialement à cette occasion, 
+				vous trouverez toutes les informations concernant notre mariage. 
+				Ici, vous trouverez également toujours les mesures corona en vigueur 
+				autour des fêtes de mariage. En tout cas, nous espérons 
+				que nous pourrons faire la fête comme jamais auparavant!  
+			</div>
+		</div>
   </div>
 
-	<div id="planning" class="d-flex align-items-center" style="margin: 0px 50px;">
-	  <div class="col-8 " style="text-align: justify; text-justify: inter-word; padding: 60px;">
+	<div id="planning" class="d-flex align-items-center">
+	  <div id="text" class="col-8" style="padding-right: 5vw;">
 			<h2 style="margin-bottom:50px;">PROGRAMME DU JOUR</h2>
 			<div>
 				<p>
@@ -93,7 +91,7 @@
 				</p>
 				<p>
 					Voudriez-vous partager le plus beau jour de notre vie avec nous? N'oubliez pas de confirmer votre présence alors.
-					Appuyez sur le bouton ci-dessous et connectez-vous à l'aide de vos identifiants de connexion que vous avez
+					Appuyez sur le bouton ci-dessous et connectez-vous à l'aide des informations d'identifications que vous avez
 					reçu avec votre invitation. Faites-nous savoir si vous serez de la partie.
 				</p>
 				<div style="margin-top: 50px;">
@@ -104,7 +102,7 @@
 			</div>
 	  </div>
     <div class="col-4">
-			<img src="{% static 'pages/img/Planning.png' %}" alt="Planning" width="100%">
+			<img src="{% static 'pages/img/Planning_FR.png' %}" alt="Planning" width="100%">
 	  </div>
 	</div>
 
@@ -168,10 +166,9 @@
 			</h2>
 			<div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlush" style="padding:20px">
 				<p>
-					Tous les enfants sont les bienvenus, en tant que parents nous vous laissons choisir
-					s’ils vous accompagnent oui ou non. Sachez qu'il n'y a pas encore beaucoup d'enfants 
-					dans notre famille proche et nos amis. Ils n'auront donc pas beaucoup de camarades 
-					pour jouer. N’oubliez pas de nous avertir de leur présence !
+					Quand vous vous connectez pour confirmer votre présence, vous verez pour quelle personne de votre famille 
+					nous avons réservé une place. Sachez qu'il n'y a pas encore beaucoup d'enfants dans notre famille proche 
+					et chez nos amis. Ils n'auront donc pas beaucoup de camarades pour jouer.
 				</p>
 				<a href="{% url 'users-family-fr' %}" class="btn btn-lg"><h6>Je serai là!</h6></a>
 			</div>
@@ -187,9 +184,9 @@
 				Oui bien sûr! Nous avons opté pour une liste de lune de miel. Cette liste comprend toutes sortes 
 				d'éléments de notre lune de miel à La Réunion que vous pouvez nous offrir. De cette façon, 
 				vous aidez à construire notre lune de miel. Sélectionnez les pièces que vous souhaitez nous offrir 
-				en fonction de votre budget. Pour finaliser votre cadeau, appuyez sur le bouton ‘Offrir ce cadeau !’. 
-				Remplissez vos coordonnées, laissez-nous un message si vous le souhaitez et appuyez sur envoyer. 
-				Ensuite, vous recevrez un e-mail avec les instructions pour payer le cadeau.
+				en fonction de votre budget. Quand vous avez choisi tous les produits désirés, vous pouvez valider 
+				votre commande. Remplissez vos coordonnées, laissez-nous un message si vous le souhaitez et appuyez 
+				sur commander. Ensuite, vous recevrez un e-mail avec les instructions pour payer le cadeau.
 			</p>
 			<a href="{% url 'products:home-page-fr' %}" class="btn btn-lg"><h6>Liste de mariage</h6></a>
 			</div>
@@ -242,11 +239,10 @@
 		</div>
   </div>
 
-    <!--{% load static %}-->
+    <!--Font Awesome-->
+    <script src="https://kit.fontawesome.com/7235818b31.js" crossorigin="anonymous"></script>
 
-    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
     <script src="{% static 'pages/js/functions.js' %}"></script>
-		<script src="{% static 'pages/js/popper.js' %}"></script>
 		<script>
 			$(document).ready(function(){
         $('.dropdown-toggle').dropdown()

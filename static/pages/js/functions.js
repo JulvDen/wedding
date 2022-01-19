@@ -46,11 +46,10 @@ function initMap() {
     '<div id="bodyContent">' +
     "<p>Elegemstraat 160, 1700 Dilbeek</p>" +
     "</div>" +
-		'<a href="https://www.google.be/maps/dir///@50.8446589,4.2793976,13z/data=!4m9!4m8!1m0!1m5!1m1!1s0x47c3c12ebb5068ed:0x14353353d517d12f!2m2!1d4.2667432!2d50.8575305!3e0" target="_blank" class="btn-link"' +
-		"<h6>Go!</h6>" +
+		'<a href="https://www.google.be/maps/dir///@50.8446589,4.2793976,13z/data=!4m9!4m8!1m0!1m5!1m1!1s0x47c3c12ebb5068ed:0x14353353d517d12f!2m2!1d4.2667432!2d50.8575305!3e0" target="_blank">' +
+		'Go!<i class="fas fa-car-alt ml-2></i>' +
 		"</a>" +
     "</div>";
-		
 		
 	const infowindow = new google.maps.InfoWindow({
     content: contentString,

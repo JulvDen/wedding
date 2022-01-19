@@ -3,24 +3,21 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="">
   <title>Lisa & Julien</title>
-
-  <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/product/">
 	<link href='https://fonts.googleapis.com/css?family=Darker Grotesque' rel='stylesheet'>
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css" rel="stylesheet" type="text/css">
-	<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 
   <!-- Bootstrap core CSS -->
   {% load static %}
   <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+	<script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
 
 
   <!-- Custom styles for this template -->
-  {% load static %}
   <link rel="stylesheet" href="{% static 'pages/css/style.css' %}">
+	
 </head>
 <body>
 
@@ -61,7 +58,7 @@
 			<div class="d-flex align-items-center">
 				<div class="container">
 					<h1 class="d-flex justify-content-center">
-						<div id="countdown" style="font-size: 60px;"></div>
+						<div id="countdown" style="font-size: 5vw;"></div>
 					</h1>
 				</div>
 			</div>
@@ -69,24 +66,24 @@
 	</div>
   
   <div class="row">
-    <div id="intro" class="col-12" style="padding: 100px">
-	  <p>Hey lieve vrienden en familie,</p>
-	  <div style="text-align: justify; text-justify: inter-word;">
-			Zoals jullie weten zijn wij sinds 26 november 2020 verloofd. 
-			We kijken er enorm naar uit om onze liefde en ons huwelijk 
-			samen met jullie te vieren. Op deze website, die Julien 
-			speciaal voor deze gelegenheid gemaakt heeft, vinden jullie 
-			alle info over ons trouwfeest terug. Wij hopen in ieder geval 
-			dat we gaan kunnen feesten als nooit tevoren!  
-	  </div>
-	</div>
+    <div id="intro" class="col-12">
+			<div id="text">
+				<p>Hey lieve vrienden en familie,</p>
+				Zoals jullie weten zijn wij sinds 26 november 2020 verloofd. 
+				We kijken er enorm naar uit om onze liefde en ons huwelijk 
+				samen met jullie te vieren. Op deze website, die Julien 
+				speciaal voor deze gelegenheid gemaakt heeft, vinden jullie 
+				alle info over ons trouwfeest terug. Wij hopen in ieder geval 
+				dat we gaan kunnen feesten als nooit tevoren!  
+			</div>
+		</div>
   </div>
 
-	<div id="planning" class="d-flex align-items-center" style="margin: 0px 50px;">
-	  <div class="col-8 " style="text-align: justify; text-justify: inter-word; padding: 60px;">
+	<div id="planning" class="d-flex align-items-center">
+	  <div id="text" class="col-8" style="padding-right: 5vw;">
 			<h2 style="margin-bottom:50px;">DAGPLANNING</h2>
 			<div>
-				<p> 
+				<p>
 					We verwachten alle ceremoniegasten om 15u30 zodat we om 16u kunnen starten met de  ceremonie. 
 					Nadien heffen we het glas tijdens de receptie, gevolgd door het diner en dansfeest.
 				</p>
@@ -103,7 +100,7 @@
 			</div>
 	  </div>
     <div class="col-4">
-			<img src="{% static 'pages/img/Planning.png' %}" alt="Planning" width="100%">
+			<img src="{% static 'pages/img/Planning_NL.png' %}" alt="Planning" width="100%">
 	  </div>
 	</div>
 
@@ -167,9 +164,9 @@
 			</h2>
 			<div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlush" style="padding:20px">
 				<p>
-					Alle kids zijn welkom, we laten jullie als ouders de keuze of jullie ze wel of niet meebrengen. 
-					Weet wel dat er nog niet heel veel kindjes in onze dichte familie- en vriendenkring zijn. 
-					Heel veel speelkameraadjes zullen ze dus niet hebben. Laat zeker weten of ze erbij zullen zijn of niet!
+					Wanneer je je inlogt om je aanwezigheid te bevestigen, zal je een lijn zien per persoon van jouw gezin waar wij een plekje 
+					voor voorzien hebben. Weet wel dat er nog niet heel veel kindjes in onze dichte familie- en vriendenkring zijn. 
+					Heel veel speelkameraadjes zullen ze dus niet hebben.
 				</p>
 				<a href="{% url 'users-family' %}" class="btn btn-lg"><h6>Ik zal er zijn!</h6></a>
 			</div>
@@ -186,9 +183,10 @@
 				Die lijst bestaat uit allerlei onderdelen van onze huwelijksreis naar La Réunion 
 				die jullie ons kunnen cadeau geven. Op die manier bouwen jullie mee aan onze huwelijksreis. 
 				Selecteer op basis voor jouw budget de onderdelen die jij ons wil geven. 
-				Om je cadeau te finaliseren druk je op de knop ‘Ik geef dit cadeau!’. 
-				Vul je gegevens in, laat indien gewenst een boodschap voor ons achter en druk op verzenden. 
-				Nadien ontvang je een e-mail met de instructies om het cadeau te betalen. 
+				Om je cadeau te finaliseren, voeg je het toe aan je winkelwagen. Als je alle gewenste producten 
+				hebt toegevoegd, kan je je bestelling bevestigen. Vul je gegevens in, laat indien gewenst een 
+				boodschap voor ons achter en plaats je bestelling. Nadien ontvang je een e-mail met de instructies 
+				om het cadeau te betalen.
 			</p>
 			<a href="{% url 'products:home-page' %}" class="btn btn-lg"><h6>Huwelijksreislijst</h6></a>
 			</div>
@@ -237,11 +235,9 @@
 		</div>
   </div>
 
-    <!--{% load static %}-->
-
-    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+		<!--Font Awesome-->
+    <script src="https://kit.fontawesome.com/7235818b31.js" crossorigin="anonymous"></script>
     <script src="{% static 'pages/js/functions.js' %}"></script>
-		<script src="{% static 'pages/js/popper.js' %}"></script>
 		<script>
 			$(document).ready(function(){
         $('.dropdown-toggle').dropdown()

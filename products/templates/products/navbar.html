@@ -8,8 +8,11 @@
         <div class="collapse navbar-collapse" id="navbarToggler">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'products:home-page' %}">Geschenklijst</a>
+                  <a class="nav-link" href="{% url 'products:home-page' %}">Geschenklijst</a>
                 </li>
+								<li class="nav-item">
+									<i class="fa-duotone fa-circle-info"></i>
+								</li>
             </ul>
             <ul class="navbar-nav">
                 {% if user.is_authenticated %}

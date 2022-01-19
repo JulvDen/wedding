@@ -81,10 +81,10 @@ def checkout_success(request, language):
         if language == "nl":
             subject = 'Bestelling goed ontvangen'
             content = 'Hallo,\n\n' \
-                      'Bedankt voor het cadeau! Gelieve ' + str(round(order.get_total_amount(), 3)) + \
+                      'Bedankt voor het cadeau! Gelieve ' + str(round(order.get_total_amount(), 2)) + \
                       ' EUR over te schrijven naar BE33 7360 4003 9846 met vermelding van jouw naam vóór ' \
-                      + due_date + '. Als het bedrag tegen dan nog niet is overgemaakt, wordt de bestelling automatisch ' \
-                      'geannuleerd en worden de gekozen producten terug beschikbaar worden voor iedereen.' \
+                      + due_date + '. Als het bedrag tegen dan nog niet is overgemaakt, wordt de bestelling ' \
+                      'automatisch geannuleerd en worden de gekozen producten terug beschikbaar worden voor iedereen.' \
                       '\n\nTot Binnenkort!' \
                       '\n\nGroetjes,' \
                       '\n\nLisa & Julien'
@@ -92,7 +92,7 @@ def checkout_success(request, language):
             subject = 'Commande bien reçu'
             content = 'Coucou,\n\n' \
                       'Un tout grand merci pour le cadeau! Merci de bien vouloir faire un virement de ' \
-                      + str(round(order.get_total_amount(), 3)) + ' EUR vers le compte BE33 7360 4003 9846 ' \
+                      + str(round(order.get_total_amount(), 2)) + ' EUR vers le compte BE33 7360 4003 9846 ' \
                       'en mentionnant votre nom et ce avant le ' + due_date + ". Si le montant n'a pas encore été " \
                       "versé d'ici là, la commande sera automatiquement annulée. Les produits que vous avez choisis " \
                       'seront alors à nouveau disponibles pour tout le monde.' \
@@ -103,7 +103,7 @@ def checkout_success(request, language):
                              content,
                              'info@lisa-julien.com',
                              [request.user.email],
-                             # bcc=['julien-denis@hotmail.com', 'lisaa.pe@hotmail.com']
+                             bcc=['julien-denis@hotmail.com', 'lisaa.pe@hotmail.com']
                              )
 
         email.send(fail_silently=False)
