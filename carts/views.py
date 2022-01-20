@@ -37,6 +37,7 @@ class CartDetailView(LoginRequiredMixin, DetailView):
 
 
 class CartDetailViewFR(LoginRequiredMixin, DetailView):
+    login_url = '/login/fr'
     context_object_name = 'order'
     template_name = 'carts/fr/cart.html'
 

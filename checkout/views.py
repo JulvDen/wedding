@@ -70,7 +70,7 @@ class CheckoutView(LoginRequiredMixin, View):
             if self.kwargs['language'] == "nl":
                 return redirect('checkout:checkout-success', language="nl")
             else:
-                return redirect('checkout:checkout-success', language="fr")
+                return redirect('checkout:checkout-success-fr', language="fr")
 
 
 def checkout_success(request, language):
@@ -79,17 +79,19 @@ def checkout_success(request, language):
         due_date = order.payment_due_date.strftime("%d-%m-%Y")
 
         if language == "nl":
-            subject = 'Bestelling goed ontvangen'
+            subject = 'Cadeau werd gereserveerd'
             content = 'Hallo,\n\n' \
-                      'Bedankt voor het cadeau! Gelieve ' + str(round(order.get_total_amount(), 2)) + \
-                      ' EUR over te schrijven naar BE33 7360 4003 9846 met vermelding van jouw naam vóór ' \
-                      + due_date + '. Als het bedrag tegen dan nog niet is overgemaakt, wordt de bestelling ' \
-                      'automatisch geannuleerd en worden de gekozen producten terug beschikbaar worden voor iedereen.' \
+                      'Alvast heel erg bedankt voor het cadeau! Mogen we je vragen om het bedrag, ' \
+                      + str(round(order.get_total_amount(), 2)) + ' EUR over te schrijven naar BE33 7360 4003 9846 ' \
+                      'met vermelding van jouw naam vóór ' +  due_date + '. Als het bedrag tegen dan nog niet is ' \
+                      'overgemaakt, wordt de reservatie automatisch geannuleerd en worden de gekozen producten terug ' \
+                      'beschikbaar gemaakt voor iedereen.' \
                       '\n\nTot Binnenkort!' \
                       '\n\nGroetjes,' \
                       '\n\nLisa & Julien'
+
         else:
-            subject = 'Commande bien reçu'
+            subject = 'Cadeau réservé'
             content = 'Coucou,\n\n' \
                       'Un tout grand merci pour le cadeau! Merci de bien vouloir faire un virement de ' \
                       + str(round(order.get_total_amount(), 2)) + ' EUR vers le compte BE33 7360 4003 9846 ' \
