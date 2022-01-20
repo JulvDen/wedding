@@ -86,8 +86,8 @@ def checkout_success(request, language):
                       'met vermelding van jouw naam vóór ' +  due_date + '. Als het bedrag tegen dan nog niet is ' \
                       'overgemaakt, wordt de reservatie automatisch geannuleerd en worden de gekozen producten terug ' \
                       'beschikbaar gemaakt voor iedereen.' \
-                      '\n\nTot Binnenkort!' \
-                      '\n\nGroetjes,' \
+                      '\n\nTot binnenkort!' \
+                      '\n\nVeel liefs,' \
                       '\n\nLisa & Julien'
 
         else:
@@ -98,7 +98,7 @@ def checkout_success(request, language):
                       'en mentionnant votre nom et ce avant le ' + due_date + ". Si le montant n'a pas encore été " \
                       "versé d'ici là, la commande sera automatiquement annulée. Les produits que vous avez choisis " \
                       'seront alors à nouveau disponibles pour tout le monde.' \
-                      '\n\nÀ Bientôt!' \
+                      '\n\nÀ bientôt!' \
                       '\n\nLisa & Julien'
 
         email = EmailMessage(subject,
