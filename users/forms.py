@@ -65,13 +65,13 @@ class FamilyMemberForm(forms.ModelForm):
     name = forms.CharField(max_length=30, label='Naam', widget=forms.TextInput(attrs={'placeholder': 'name',
                                                                                       'class': 'form-control', }))
 
-    toCeremony = forms.BooleanField(label='Ceremonie')
+    toCeremony = forms.BooleanField(required=False, label='Ceremonie')
 
-    toReception = forms.BooleanField(label='Receptie')
+    toReception = forms.BooleanField(required=False, label='Receptie')
 
-    toDinner = forms.BooleanField(label='Diner')
+    toDinner = forms.BooleanField(required=False, label='Diner')
 
-    toParty = forms.BooleanField(label='Dansfeest')
+    toParty = forms.BooleanField(required=False, label='Dansfeest')
 
     select_all = forms.BooleanField(required=False, label='Alles selecteren', widget=forms.CheckboxInput(
         attrs={'class': 'selectAll', }))
@@ -100,13 +100,13 @@ class FamilyMemberFormFR(forms.ModelForm):
     name = forms.CharField(max_length=30, label='Nom', widget=forms.TextInput(attrs={'placeholder': 'name',
                                                                                       'class': 'form-control', }))
 
-    toCeremony = forms.BooleanField(label='Céremonie')
+    toCeremony = forms.BooleanField(required=False, label='Céremonie')
 
-    toReception = forms.BooleanField(label='Reception')
+    toReception = forms.BooleanField(required=False, label='Reception')
 
-    toDinner = forms.BooleanField(label='Dîner')
+    toDinner = forms.BooleanField(required=False, label='Dîner')
 
-    toParty = forms.BooleanField(label='Soirée Dansante')
+    toParty = forms.BooleanField(required=False, label='Soirée Dansante')
 
     select_all = forms.BooleanField(required=False, label='Sélectionner Tout', widget=forms.CheckboxInput(
         attrs={'class': 'selectAll', }))
