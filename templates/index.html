@@ -239,9 +239,9 @@
     <script src="https://kit.fontawesome.com/7235818b31.js" crossorigin="anonymous"></script>
     <script src="{% static 'pages/js/functions.js' %}"></script>
 		<script>
-			$(document).ready(function(){
-        $('.dropdown-toggle').dropdown()
-			});
+			if (window.innerWidth < 770){
+				alert("Website nog niet beschikbaar in smartphone of tablet weergave. Inhoud kan bij gevolg niet correct worden weergegeven.");
+			}
 		</script>
 	  <script
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA-W7ZW8ZH96M5r0wOB2HS5dyxjxupoC3E&callback=initMap&libraries=&v=weekly"

@@ -132,7 +132,7 @@
 				<div class="accordion-body">
 					<p>
 						Bonne nouvelle ! Les mariages peuvent toujours être célébrés. 
-						Bien sûr, à condition de respecter les mesures anti-Covid en vigeur. 
+						Bien sûr, à condition de respecter les mesures anti-Covid en vigueur. 
 						Depuis le 26 novembre 2021, les règles sont les suivantes : 
 						<ul>
 							<li>Comme nous recevons plus de 50 personnes, le Covid Safe Ticket doit être présenté à l'arrivée. </li>
@@ -244,9 +244,9 @@
 
     <script src="{% static 'pages/js/functions.js' %}"></script>
 		<script>
-			$(document).ready(function(){
-        $('.dropdown-toggle').dropdown()
-			});
+			if (window.innerWidth < 770){
+				alert("Ce site web n'est pas encore disponible en version mobile ou tablette. Il se peut donc que le contenu ne soit pas bien affiché.");
+			}
 		</script>
 	  <script
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA-W7ZW8ZH96M5r0wOB2HS5dyxjxupoC3E&callback=initMap&libraries=&v=weekly"

@@ -68,3 +68,8 @@ function initMap() {
     });
   });
 }
+
+$(document).ready(function(){
+	$('.dropdown-toggle').dropdown()
+});
+		
