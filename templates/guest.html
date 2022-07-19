@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<body>
+{% load widget_tweaks %}
+<div >
+    <p>Family</p>
+</div>
+<div>
+    <select id="family" name="family" class="form-control col-6">
+        <option value="blank" selected="selected"></option>
+	{% for family in families %}
+		<option value="{{ family.id }}">{{ family }}</option>
+    {% endfor %}
+    </select>
+</div>
+<p></p>
+<div >
+    <p>Family member</p>
+</div>
+<div>
+    <select id="members" name="members" class="form-control col-6">
+        <option value="Blank">Please select family</option>
+    </select>
+</div>
+<p></p>
+<p>Personal details</p>
+<form id="guest" name="guest" style="display:none" method="post" novalidate >
+  {% csrf_token %}
+
+  {% for field in form.visible_fields %}
+    <div class="form-group">
+      {{ field.label_tag }}
+      {% render_field field class="form-control col-6" %}
+      {% if field.help_text %}
+        <small class="form-text text-muted">{{ field.help_text }}</small>
+      {% endif %}
+    </div>
+  {% endfor %}
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+<p></p>
+</body>
+<script>
+	$('#family').change(function() {
+	  $('#guest').hide();
+	  var family = $(this).val();
+	  $.ajax({
+		type: 'GET',
+		url: "{% url 'get_members' %}",
+		data: {"family": family},
+
+		success: function (response){
+			var members = response["member_results"];
+
+			$('#members').children().remove().end()
+			.append('<option value="Blank" selected>Please select family member</option>') ;
+			for (let i = 0; i < members.length; i++) {
+			  $('#members').append('<option value="' + members[i]['id']+ '">' + members[i]["surname"] + ' '
+			  + members[i]["name"] + '</option>');
+			}
+		},
+		error: function (response) {
+			console.log(response)
+		}
+	  });
+	});
+
+	 $('#members').change(function() {
+	   $('#guest').show();
+	   var member = $(this).val();
+	   $.ajax({
+		type: 'GET',
+		url: "{% url 'get_member_info' %}",
+		data: {"member": member},
+
+		success: function (response){
+			var members = response["member_info"];
+
+			$('#id_email').val(members[0]['email']);
+			$('#id_language').val(members[0]['language']);
+		},
+		error: function (response) {
+			console.log(response)
+		}
+	  });
+	 });
+
+	$("#guest").submit(function (e) {
+		// serialize the data for sending the form data.
+		var serializedData = $(this).serialize();
+		$.ajax({
+			type: 'POST',
+			url: "{% url 'post_guest' %}",
+			data: serializedData,
+			success: function (response) {
+				// on successfull creating object
+				console.log("succesful!")
+			},
+			error: function (response) {
+				// alert the error if any error occured
+				alert(response["responseJSON"]["error"]);
+			}
+		})
+	 })
+</script>
+</html>
